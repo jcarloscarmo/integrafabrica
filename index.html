@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta Comercial - Integra Fábrica | Jolt Sistemas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+        }
+        
+        .card-highlight {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
+            }
+        }
+        
+        .sticky-header {
+            backdrop-filter: blur(10px);
+            background-color: rgba(30, 58, 138, 0.95);
+        }
+        
+        /* Animações para Perdas e Ganhos */
+        .loss-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .loss-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(220, 38, 38, 0.3);
+            border-color: #dc2626;
+        }
+        
+        .loss-card:hover .loss-icon {
+            animation: shake 0.6s ease-in-out;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+        
+        .gain-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .gain-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.4);
+            border-color: #10b981;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+        }
+        
+        .gain-card:hover .gain-icon {
+            animation: success-pulse 0.6s ease-in-out;
+        }
+        
+        @keyframes success-pulse {
+            0%, 100% { 
+                transform: scale(1);
+            }
+            50% { 
+                transform: scale(1.3);
+                filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.8));
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Delays escalonados para animação em cascata */
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+        
+        /* Seta de transformação entre cards */
+        .transform-arrow {
+            position: relative;
+        }
+        
+        .transform-arrow::before {
+            content: '→';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            font-weight: bold;
+            color: #10b981;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            text-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+            z-index: 10;
+        }
+        
+        @media (min-width: 1024px) {
+            .transform-arrow:hover::before {
+                opacity: 0.3;
+            }
+        }
+        
+        /* Pulso nos ícones dos cabeçalhos */
+        @keyframes icon-pulse-warning {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+                filter: drop-shadow(0 0 8px rgba(220, 38, 38, 0.6));
+            }
+        }
+        
+        @keyframes icon-pulse-success {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+                filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.6));
+            }
+        }
+        
+        .header-warning-icon {
+            animation: icon-pulse-warning 2s ease-in-out infinite;
+        }
+        
+        .header-success-icon {
+            animation: icon-pulse-success 2s ease-in-out infinite;
+        }
+        
+        /* Tooltip para termos técnicos */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted #6b7280;
+            cursor: help;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #1f2937;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #1f2937 transparent transparent transparent;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        /* Bordas customizadas */
+        .border-3 {
+            border-width: 3px;
+        }
+        
+        /* Animação de pulso para pontos de decisão */
+        @keyframes decision-pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.7);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(234, 179, 8, 0);
+            }
+        }
+        
+        .decision-point {
+            animation: decision-pulse 2s infinite;
+        }
+        
+        /* Destaque para ações do funcionário */
+        .worker-action {
+            background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .worker-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(251, 146, 60, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    
+    <!-- Header Fixo -->
+    <header class="sticky top-0 z-50 sticky-header shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0">
+            <div class="text-white font-bold text-lg sm:text-xl">
+                Integra Fábrica <span class="text-emerald-400">| by BetaUp</span>
+            </div>
+            <div class="text-white text-sm sm:text-base">
+                <span class="font-semibold">Proposta Comercial</span> | Data: <span class="text-emerald-400">19/04/2026</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-16 sm:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight">
+                Controle Absoluto da sua Produção e Estoque.
+            </h1>
+            <p class="text-base sm:text-lg md:text-xl max-w-4xl mx-auto leading-relaxed text-gray-100">
+                Descubra o custo real de cada peça, elimine perdas no chão de fábrica e <span class="text-emerald-400 font-bold">sincronize automaticamente seu estoque físico com suas vendas no Mercado Livre e Shopee</span>. Apresentamos o <span class="text-emerald-400 font-bold">Integra Fábrica</span>.
+            </p>
+        </div>
+    </section>
+
+    <!-- Mapa Visual de Perdas e Ganhos Financeiros -->
+    <section class="py-12 sm:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-black text-blue-900 mb-4">
+                    Sua Fábrica Hoje vs. Com o Integra Fábrica
+                </h2>
+                <p class="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto">
+                    Visualize exatamente onde você perde dinheiro agora e onde passa a lucrar com o sistema.
+                </p>
+            </div>
+
+            <div class="max-w-7xl mx-auto">
+                <!-- Cabeçalhos das Colunas -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
+                    <div class="bg-red-100 border-2 border-red-300 rounded-xl p-4 text-center">
+                        <h3 class="text-xl sm:text-2xl font-black text-red-800 flex items-center justify-center gap-2">
+                            <i class="fas fa-exclamation-triangle header-warning-icon"></i>
+                            Onde você perde hoje
+                        </h3>
+                        <p class="text-red-700 font-semibold text-sm mt-1">(Cenário Atual)</p>
+                    </div>
+                    <div class="bg-green-100 border-2 border-green-300 rounded-xl p-4 text-center">
+                        <h3 class="text-xl sm:text-2xl font-black text-green-800 flex items-center justify-center gap-2">
+                            <i class="fas fa-check-circle header-success-icon"></i>
+                            Onde você ganha com o sistema
+                        </h3>
+                        <p class="text-green-700 font-semibold text-sm mt-1">(Cenário Ideal)</p>
+                    </div>
+                </div>
+
+                <!-- Etapa 1: Matéria-Prima -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6 transform-arrow">
+                    <div class="loss-card fade-in-up delay-1 bg-red-50 border-2 border-red-200 rounded-xl p-6 flex flex-col h-full cursor-pointer">
+                        <div class="flex items-start gap-3 mb-3">
+                            <i class="loss-icon fas fa-times-circle text-2xl text-red-600 mt-1 flex-shrink-0"></i>
+                            <h4 class="text-lg font-bold text-red-900">Matéria-Prima (Gesso e Água)</h4>
+                        </div>
+                        <p class="text-red-800 text-sm leading-relaxed flex-grow">
+                            Compra descontrolada baseada em 'achismo'. Preço flutuante da saca corrói sua margem sem você perceber. Uso descontrolado de insumos.
+                        </p>
+                    </div>
+                    <div class="gain-card fade-in-up delay-1 bg-green-50 border-2 border-green-200 rounded-xl p-6 flex flex-col h-full cursor-pointer">
+                        <div class="flex items-start gap-3 mb-3">
+                            <i class="gain-icon fas fa-check-circle text-2xl text-green-600 mt-1 flex-shrink-0"></i>
+                            <h4 class="text-lg font-bold text-green-900">Matéria-Prima (Gesso e Água)</h4>
+                        </div>
+                        <p class="text-green-800 text-sm leading-relaxed flex-grow">
+                            Ficha Técnica exata por imagem. Sistema calcula o custo de cada peça automaticamente baseado na última compra. Você sabe quanto gasta de gesso até a grama.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Etapa 2: Produção Bruta -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6 transform-arrow">
+                    <div class="loss-card fade-in-up delay-2 bg-red-50 border-2 border-red-200 rounded-xl p-6 flex flex-col h-full cursor-pointer">
+                        <div class="flex items-start gap-3 mb-3">
+                            <i class="loss-icon fas fa-times-circle text-2xl text-red-600 mt-1 flex-shrink-0"></i>
+                            <h4 class="text-lg font-bold text-red-900">Produção Bruta (Fundição/Secagem/Raspagem)</h4>
+                        </div>
+                        <p class="text-red-800 text-sm leading-relaxed flex-grow">
+                            Alta quebra (<span class="tooltip">refugo<span class="tooltiptext">Peças quebradas ou com defeito</span></span>) sem saber quem quebrou. Produtividade individual desconhecida. Você paga o dia do funcionário, mas não sabe quantas peças boas ele entregou.
+                        </p>
+                    </div>
+                    <div class="gain-card fade-in-up delay-2 bg-green-50 border-2 border-green-200 rounded-xl p-6 flex flex-col h-full cursor-pointer">
+                        <div class="flex items-start gap-3 mb-3">
+                            <i class="gain-icon fas fa-check-circle text-2xl text-green-600 mt-1 flex-shrink-0"></i>
+                            <h4 class="text-lg font-bold text-green-900">Produção Bruta (Fundição/Secagem/Raspagem)</h4>
+                        </div>
+                        <p class="text-green-800 text-sm leading-relaxed flex-grow">
+                            Registro imediato de perdas por operador. Relatórios diários de produtividade (Pessoa/Dia) e <span class="tooltip">índice de refugo<span class="tooltiptext">% de peças quebradas por funcionário</span></span>. Cobrança baseada em dados reais.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Etapa 3: Estoque Sem Pintura -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6 transform-arrow">
+                    <div class="loss-card fade-in-up delay-3 bg-red-50 border-2 border-red-200 rounded-xl p-6 flex flex-col h-full cursor-pointer">
+                        <div class="flex items-start gap-3 mb-3">
+                            <i class="loss-icon fas fa-times-circle text-2xl text-red-600 mt-1 flex-shrink-0"></i>
+                            <h4 class="text-lg font-bold text-red-900">Estoque Sem Pintura</h4>
+                        </div>
+                        <p class="text-red-800 text-sm leading-relaxed flex-grow">
+                            Peças 'somem' na prateleira. Você acha que tem 50 imagens de São Jorge, mas na hora de vender, só tem 30. Capital travado sem controle.
+                        </p>
+                    </div>
+                    <div class="gain-card fade-in-up delay-3 bg-green-50 border-2 border-green-200 rounded-xl p-6 flex flex-col h-full cursor-pointer">
+                        <div class="flex items-start gap-3 mb-3">
+                            <i class="gain-icon fas fa-check-circle text-2xl text-green-600 mt-1 flex-shrink-0"></i>
+                            <h4 class="text-lg font-bold text-green-900">Estoque Sem Pintura</h4>
+                        </div>
+                        <p class="text-green-800 text-sm leading-relaxed flex-grow">
+                            Localização digital de peças. Transferência eletrônica rigorosa para o setor de pintura. Saldo físico sempre bate com o sistema.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Etapa 4: Pintura e Acabamento -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6 transform-arrow">
+                    <div class="loss-card fade-in-up delay-4 bg-red-50 border-2 border-red-200 rounded-xl p-6 flex flex-col h-full cursor-pointer">
+                        <div class="flex items-start gap-3 mb-3">
+                            <i class="loss-icon fas fa-times-circle text-2xl text-red-600 mt-1 flex-shrink-0"></i>
+                            <h4 class="text-lg font-bold text-red-900">Pintura e Acabamento</h4>
+                        </div>
+                        <p class="text-red-800 text-sm leading-relaxed flex-grow">
+                            Desperdício massivo de tintas e vernizes. Custo de mão de obra e insumos caros de pintura não são somados ao custo final da peça. Prejuízo mascarado.
+                        </p>
+                    </div>
+                    <div class="gain-card fade-in-up delay-4 bg-green-50 border-2 border-green-200 rounded-xl p-6 flex flex-col h-full cursor-pointer">
+                        <div class="flex items-start gap-3 mb-3">
+                            <i class="gain-icon fas fa-check-circle text-2xl text-green-600 mt-1 flex-shrink-0"></i>
+                            <h4 class="text-lg font-bold text-green-900">Pintura e Acabamento</h4>
+                        </div>
+                        <p class="text-green-800 text-sm leading-relaxed flex-grow">
+                            Controle do consumo de tintas fracionadas. Soma exata dos insumos de acabamento ao custo final da imagem. Margem de lucro real garantida.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Etapa 5: Venda e Faturamento -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 transform-arrow">
+                    <div class="loss-card fade-in-up delay-5 bg-red-50 border-2 border-red-200 rounded-xl p-6 flex flex-col h-full cursor-pointer">
+                        <div class="flex items-start gap-3 mb-3">
+                            <i class="loss-icon fas fa-times-circle text-2xl text-red-600 mt-1 flex-shrink-0"></i>
+                            <h4 class="text-lg font-bold text-red-900">Venda e Faturamento</h4>
+                        </div>
+                        <p class="text-red-800 text-sm leading-relaxed flex-grow mb-3">
+                            Preço de venda baseado na concorrência, não no seu custo real.
+                        </p>
+                        <div class="bg-red-200 border-2 border-red-400 rounded-lg p-3 mt-2">
+                            <p class="text-xs font-black text-red-900 uppercase mb-1">💣 BOMBA-RELÓGIO:</p>
+                            <p class="text-xs text-red-800 font-bold">
+                                Você vende no Mercado Livre às 14h. Só lembra de dar baixa no sistema às 18h. Às 16h outro cliente comprou a mesma peça que não existe mais. Prejuízo + reclamação + reputação queimada.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="gain-card fade-in-up delay-5 bg-green-50 border-2 border-green-200 rounded-xl p-6 flex flex-col h-full cursor-pointer">
+                        <div class="flex items-start gap-3 mb-3">
+                            <i class="gain-icon fas fa-check-circle text-2xl text-green-600 mt-1 flex-shrink-0"></i>
+                            <h4 class="text-lg font-bold text-green-900">Venda e Faturamento</h4>
+                        </div>
+                        <p class="text-green-800 text-sm leading-relaxed flex-grow mb-3">
+                            Precificação dinâmica (Custo + Margem Desejada).
+                        </p>
+                        <div class="bg-emerald-200 border-2 border-emerald-400 rounded-lg p-3 mt-2">
+                            <p class="text-xs font-black text-emerald-900 uppercase mb-1">🔒 PROTEÇÃO TOTAL:</p>
+                            <p class="text-xs text-emerald-800 font-bold">
+                                Cliente comprou no Mercado Livre às 14h00m05s? Às 14h00m06s o sistema já baixou no estoque físico e tirou a peça do ar na Shopee. IMPOSSÍVEL vender duas vezes a mesma peça.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fluxo Visual do Sistema -->
+    <section class="py-12 sm:py-20 bg-gradient-to-b from-blue-50 to-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-black text-blue-900 mb-4">
+                    Jornada da Peça: Do Gesso à Venda
+                </h2>
+                <p class="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto mb-6">
+                    Veja como o sistema acompanha cada centavo investido em cada peça, da matéria-prima até o faturamento.
+                </p>
+                
+                <!-- Legenda Visual -->
+                <div class="flex flex-wrap justify-center gap-4 mt-6">
+                    <div class="flex items-center gap-2 bg-orange-100 border-2 border-orange-300 rounded-lg px-4 py-2">
+                        <i class="fas fa-user-tie text-orange-700 text-xl"></i>
+                        <span class="text-sm font-semibold text-orange-900">= Ação do Funcionário</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-gray-100 border-2 border-gray-300 rounded-lg px-4 py-2">
+                        <i class="fas fa-cogs text-gray-700 text-xl"></i>
+                        <span class="text-sm font-semibold text-gray-900">= Ação Automática do Sistema</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-6xl mx-auto">
+                <!-- INÍCIO: Estoques de Matéria Prima -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                    <div class="bg-amber-100 border-3 border-amber-400 rounded-2xl p-6 text-center shadow-lg">
+                        <i class="fas fa-box-open text-4xl text-amber-700 mb-3"></i>
+                        <h3 class="font-bold text-amber-900 text-lg mb-2">Estoque de Gesso e Água</h3>
+                        <p class="text-sm text-amber-800">Custo médio controlado automaticamente</p>
+                    </div>
+                    <div class="bg-purple-100 border-3 border-purple-400 rounded-2xl p-6 text-center shadow-lg">
+                        <i class="fas fa-palette text-4xl text-purple-700 mb-3"></i>
+                        <h3 class="font-bold text-purple-900 text-lg mb-2">Estoque de Tintas e Insumos</h3>
+                        <p class="text-sm text-purple-800">Cada ml é rastreado e somado ao custo</p>
+                    </div>
+                </div>
+
+                <!-- Seta Central com ícone do funcionário -->
+                <div class="flex justify-center items-center mb-8">
+                    <div class="text-center">
+                        <i class="fas fa-user-circle text-5xl text-blue-600 mb-2"></i>
+                        <i class="fas fa-arrow-down text-4xl text-blue-500"></i>
+                        <p class="text-xs text-blue-700 font-semibold mt-1">Funcionário inicia o processo</p>
+                    </div>
+                </div>
+
+                <!-- SISTEMA: Abertura de Lote -->
+                <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-6 text-center shadow-2xl mb-8">
+                    <i class="fas fa-mobile-alt text-4xl text-white mb-3"></i>
+                    <h3 class="font-black text-white text-xl mb-2">Sistema: Abertura de Lote (Ordem de Produção)</h3>
+                    <p class="text-blue-100 text-sm mb-4">Operador bipa QR Code → Sistema dá baixa automática nos insumos pelo custo médio</p>
+                    
+                    <!-- Ação do Funcionário -->
+                    <div class="bg-white/20 backdrop-blur-sm border-2 border-white/40 rounded-lg p-4 max-w-md mx-auto">
+                        <i class="fas fa-user-circle text-4xl text-white mb-2"></i>
+                        <p class="text-base font-bold text-white mb-1">👤 Operador:</p>
+                        <p class="text-sm text-blue-100">"Pego o celular coletor, abro o app e bipo o QR Code do molde"</p>
+                    </div>
+                </div>
+
+                <!-- FASE 1: Produção Base -->
+                <div class="bg-white border-4 border-blue-300 rounded-2xl p-6 mb-8 shadow-xl">
+                    <h3 class="text-center font-black text-blue-900 text-2xl mb-6 flex items-center justify-center gap-2">
+                        <i class="fas fa-industry"></i>
+                        FASE 1: Produção Base
+                    </h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 relative">
+                        <!-- Setas de conexão entre etapas (apenas desktop) -->
+                        <div class="hidden md:block absolute top-1/3 left-1/3 transform -translate-x-1/2">
+                            <i class="fas fa-arrow-right text-3xl text-blue-400"></i>
+                        </div>
+                        <div class="hidden md:block absolute top-1/3 left-2/3 transform -translate-x-1/2">
+                            <i class="fas fa-arrow-right text-3xl text-blue-400"></i>
+                        </div>
+                        
+                        <div class="bg-blue-50 border-2 border-blue-200 rounded-xl p-4 text-center relative z-10">
+                            <div class="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-xl">1</div>
+                            <h4 class="font-bold text-blue-900 mb-2">Fundição</h4>
+                            <p class="text-sm text-gray-700 mb-3">Operador aponta início</p>
+                            <!-- Ação do Funcionário -->
+                            <div class="bg-orange-100 border-2 border-orange-300 rounded-lg p-3 mt-2">
+                                <i class="fas fa-user-tie text-2xl text-orange-700 mb-1"></i>
+                                <p class="text-xs font-bold text-orange-900 mb-1">👤 Funcionário:</p>
+                                <p class="text-xs text-orange-800">"Bipo o QR Code da OP no celular"</p>
+                            </div>
+                        </div>
+                        <div class="bg-blue-50 border-2 border-blue-200 rounded-xl p-4 text-center relative z-10">
+                            <div class="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-xl">2</div>
+                            <h4 class="font-bold text-blue-900 mb-2">Secagem</h4>
+                            <p class="text-sm text-gray-700 mb-3">Tempo de cura automático</p>
+                            <!-- Ação do Funcionário -->
+                            <div class="bg-gray-100 border-2 border-gray-300 rounded-lg p-3 mt-2">
+                                <i class="fas fa-clock text-2xl text-gray-600 mb-1"></i>
+                                <p class="text-xs font-bold text-gray-700 mb-1">⏱️ Sistema:</p>
+                                <p class="text-xs text-gray-600">"Aguardando tempo de cura"</p>
+                            </div>
+                        </div>
+                        <div class="bg-blue-50 border-2 border-blue-200 rounded-xl p-4 text-center relative z-10">
+                            <div class="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-xl">3</div>
+                            <h4 class="font-bold text-blue-900 mb-2">Raspagem</h4>
+                            <p class="text-sm text-gray-700 mb-3">Operador finaliza</p>
+                            <!-- Ação do Funcionário -->
+                            <div class="bg-orange-100 border-2 border-orange-300 rounded-lg p-3 mt-2">
+                                <i class="fas fa-user-cog text-2xl text-orange-700 mb-1"></i>
+                                <p class="text-xs font-bold text-orange-900 mb-1">👤 Funcionário:</p>
+                                <p class="text-xs text-orange-800">"Raspo a peça e informo se quebrou"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ponto de Decisão -->
+                    <div class="flex justify-center mb-4">
+                        <div class="decision-point bg-yellow-400 border-4 border-yellow-600 rounded-lg p-4 inline-block shadow-lg">
+                            <i class="fas fa-search text-3xl text-yellow-900 mb-2 block text-center"></i>
+                            <p class="font-black text-yellow-900 text-center">INSPEÇÃO DE QUALIDADE</p>
+                        </div>
+                    </div>
+
+                    <!-- Bifurcação -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-red-100 border-3 border-red-400 rounded-xl p-6 text-center shadow-lg">
+                            <i class="fas fa-times-circle text-4xl text-red-600 mb-3"></i>
+                            <h4 class="font-bold text-red-900 text-lg mb-2">Peça Quebrada</h4>
+                            <p class="text-sm text-red-800 mb-3">Lançamento de <span class="tooltip">Refugo<span class="tooltiptext">Perda registrada e descontada</span></span><br>Sistema recalcula o custo das peças boas</p>
+                            <!-- Ação do Funcionário -->
+                            <div class="bg-orange-100 border-2 border-orange-300 rounded-lg p-3 mt-2">
+                                <i class="fas fa-user-times text-xl text-orange-700 mb-1"></i>
+                                <p class="text-xs font-bold text-orange-900 mb-1">👤 Funcionário:</p>
+                                <p class="text-xs text-orange-800">"Informo a quebra no celular"</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-200 border-3 border-gray-500 rounded-xl p-6 text-center shadow-lg">
+                            <i class="fas fa-check-circle text-4xl text-gray-700 mb-3"></i>
+                            <h4 class="font-bold text-gray-900 text-lg mb-2">Peça Boa</h4>
+                            <p class="text-sm text-gray-800 mb-3">Vai para <strong>Estoque Sem Pintura</strong><br>Já pode ser vendida ou pintada</p>
+                            <!-- Ação do Funcionário -->
+                            <div class="bg-orange-100 border-2 border-orange-300 rounded-lg p-3 mt-2">
+                                <i class="fas fa-user-check text-xl text-orange-700 mb-1"></i>
+                                <p class="text-xs font-bold text-orange-900 mb-1">👤 Funcionário:</p>
+                                <p class="text-xs text-orange-800">"Levo para o estoque"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seta de transição -->
+                <div class="flex justify-center items-center my-8">
+                    <div class="text-center">
+                        <i class="fas fa-user-circle text-4xl text-gray-700 mb-2"></i>
+                        <i class="fas fa-arrow-down text-3xl text-gray-500"></i>
+                        <p class="text-xs text-gray-700 font-semibold mt-1">Estoquista decide o próximo passo</p>
+                    </div>
+                </div>
+
+                <!-- DECISÃO: Vender ou Pintar -->
+                <div class="bg-gradient-to-r from-gray-300 to-gray-400 rounded-2xl p-6 text-center shadow-xl mb-8">
+                    <h3 class="font-black text-gray-900 text-xl mb-3">O que fazer com a peça crua?</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-white rounded-lg p-4 border-2 border-gray-600">
+                            <i class="fas fa-shopping-cart text-3xl text-gray-700 mb-2"></i>
+                            <p class="font-bold text-gray-800 mb-2">Vender Sem Pintura</p>
+                            <p class="text-xs text-gray-600 mb-3">Baixa automática no estoque</p>
+                            <!-- Ação do Funcionário -->
+                            <div class="bg-orange-100 border border-orange-300 rounded p-2">
+                                <i class="fas fa-user-tag text-lg text-orange-700"></i>
+                                <p class="text-xs font-bold text-orange-900">👤 Estoquista:</p>
+                                <p class="text-xs text-orange-800">"Bipo a peça na expedição"</p>
+                            </div>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border-2 border-purple-600">
+                            <i class="fas fa-paint-brush text-3xl text-purple-700 mb-2"></i>
+                            <p class="font-bold text-purple-800 mb-2">Transferir para Pintura</p>
+                            <p class="text-xs text-purple-600 mb-3">Ordem de transferência eletrônica</p>
+                            <!-- Ação do Funcionário -->
+                            <div class="bg-orange-100 border border-orange-300 rounded p-2">
+                                <i class="fas fa-user-tag text-lg text-orange-700"></i>
+                                <p class="text-xs font-bold text-orange-900">👤 Estoquista:</p>
+                                <p class="text-xs text-orange-800">"Bipo transferência para o setor"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seta de transição para pintura -->
+                <div class="flex justify-center items-center my-8">
+                    <div class="text-center">
+                        <i class="fas fa-user-tag text-4xl text-purple-600 mb-2"></i>
+                        <i class="fas fa-arrow-down text-3xl text-purple-500"></i>
+                        <p class="text-xs text-purple-700 font-semibold mt-1">Peça transferida para o setor de pintura</p>
+                    </div>
+                </div>
+
+                <!-- FASE 2: Setor de Acabamento -->
+                <div class="bg-white border-4 border-purple-300 rounded-2xl p-6 mb-8 shadow-xl">
+                    <h3 class="text-center font-black text-purple-900 text-2xl mb-6 flex items-center justify-center gap-2">
+                        <i class="fas fa-paint-roller"></i>
+                        FASE 2: Setor de Acabamento
+                    </h3>
+
+                    <div class="bg-purple-50 border-2 border-purple-200 rounded-xl p-6 text-center mb-6">
+                        <div class="bg-purple-600 text-white w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 font-bold text-xl">4</div>
+                        <h4 class="font-bold text-purple-900 mb-2 text-lg">Área de Pintura</h4>
+                        <p class="text-sm text-gray-700 mb-2">Pintor aponta início e fim</p>
+                        <p class="text-xs text-purple-800 font-semibold mb-4">Sistema dá baixa automática em tintas, verniz e insumos</p>
+                        
+                        <!-- Ação do Funcionário -->
+                        <div class="bg-orange-100 border-2 border-orange-300 rounded-lg p-4 mt-3 max-w-md mx-auto">
+                            <i class="fas fa-user-check text-3xl text-orange-700 mb-2"></i>
+                            <p class="text-sm font-bold text-orange-900 mb-1">👨‍🎨 Pintor:</p>
+                            <p class="text-sm text-orange-800">"Bipo para iniciar, pinto a peça e bipo novamente ao terminar"</p>
+                        </div>
+                    </div>
+
+                    <!-- Ponto de Decisão Final -->
+                    <div class="flex justify-center mb-4">
+                        <div class="decision-point bg-yellow-400 border-4 border-yellow-600 rounded-lg p-4 inline-block shadow-lg">
+                            <i class="fas fa-search text-3xl text-yellow-900 mb-2 block text-center"></i>
+                            <p class="font-black text-yellow-900 text-center">INSPEÇÃO FINAL</p>
+                        </div>
+                    </div>
+
+                    <!-- Bifurcação Final -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-red-100 border-3 border-red-500 rounded-xl p-6 text-center shadow-lg">
+                            <i class="fas fa-exclamation-triangle text-4xl text-red-700 mb-3"></i>
+                            <h4 class="font-bold text-red-900 text-lg mb-2">Peça Quebrada/Borrada</h4>
+                            <p class="text-sm text-red-800 mb-3"><strong>ALTO IMPACTO NO CUSTO!</strong><br>Perda de matéria-prima + tintas caras<br>Sistema recalcula automaticamente</p>
+                            <!-- Ação do Funcionário -->
+                            <div class="bg-orange-100 border-2 border-orange-300 rounded-lg p-3 mt-2">
+                                <i class="fas fa-user-times text-xl text-orange-700 mb-1"></i>
+                                <p class="text-xs font-bold text-orange-900 mb-1">👤 Pintor:</p>
+                                <p class="text-xs text-orange-800">"Informo a quebra no sistema"</p>
+                            </div>
+                        </div>
+                        <div class="bg-blue-100 border-3 border-blue-500 rounded-xl p-6 text-center shadow-lg">
+                            <i class="fas fa-star text-4xl text-blue-600 mb-3"></i>
+                            <h4 class="font-bold text-blue-900 text-lg mb-2">Peça Boa (Produto Final)</h4>
+                            <p class="text-sm text-blue-800 mb-3">Vai para <strong>Estoque de Venda</strong><br>Custo real completo calculado</p>
+                            <!-- Ação do Funcionário -->
+                            <div class="bg-orange-100 border-2 border-orange-300 rounded-lg p-3 mt-2">
+                                <i class="fas fa-user-check text-xl text-orange-700 mb-1"></i>
+                                <p class="text-xs font-bold text-orange-900 mb-1">👤 Pintor:</p>
+                                <p class="text-xs text-orange-800">"Finalizo e mando pro estoque"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seta de transição -->
+                <div class="flex justify-center items-center my-8">
+                    <div class="text-center">
+                        <i class="fas fa-walking text-4xl text-emerald-600 mb-2"></i>
+                        <i class="fas fa-arrow-down text-3xl text-emerald-500"></i>
+                        <p class="text-xs text-emerald-700 font-semibold mt-1">Funcionário leva para expedição</p>
+                    </div>
+                </div>
+
+                <!-- FINAL: Venda -->
+                <div class="bg-gradient-to-r from-emerald-500 to-emerald-700 rounded-2xl p-8 text-center shadow-2xl border-4 border-emerald-300">
+                    <i class="fas fa-dollar-sign text-5xl text-white mb-4"></i>
+                    <h3 class="font-black text-white text-2xl mb-3">VENDA E FATURAMENTO</h3>
+                    <p class="text-emerald-100 text-lg mb-4">Baixa automática no estoque físico</p>
+                    
+                    <!-- Destaque do Grande Diferencial -->
+                    <div class="bg-white rounded-xl p-6 mb-4 shadow-2xl">
+                        <p class="text-lg font-black text-emerald-900 mb-3">🔥 GRANDE DIFERENCIAL DA OPÇÃO A:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
+                            <div class="bg-blue-50 border-2 border-blue-300 rounded-lg p-4">
+                                <p class="text-sm font-bold text-blue-900 mb-2">
+                                    <i class="fas fa-store text-xl mr-2"></i>Mercado Livre
+                                </p>
+                                <p class="text-xs text-blue-800">
+                                    ✅ Cliente compra no ML<br>
+                                    ✅ 1 segundo depois: estoque baixado na fábrica<br>
+                                    ✅ Peça sumiu de TODOS seus anúncios online
+                                </p>
+                            </div>
+                            <div class="bg-orange-50 border-2 border-orange-300 rounded-lg p-4">
+                                <p class="text-sm font-bold text-orange-900 mb-2">
+                                    <i class="fas fa-shopping-bag text-xl mr-2"></i>Shopee
+                                </p>
+                                <p class="text-xs text-orange-800">
+                                    ✅ Produziu 10 peças agora?<br>
+                                    ✅ 1 segundo depois: quantidade atualizada na Shopee<br>
+                                    ✅ Cliente JÁ pode comprar online
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-red-50 border-2 border-red-300 rounded-lg p-3 mt-4">
+                            <p class="text-xs font-bold text-red-900 mb-1">❌ NA OPÇÃO B (Mais barata):</p>
+                            <p class="text-xs text-red-800">
+                                Você precisa LEMBRAR de entrar no sistema toda vez que vender online e dar baixa manual. Se esquecer = venda duplicada = prejuízo + reclamação.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Ação do Funcionário -->
+                    <div class="bg-white/20 backdrop-blur-sm border-2 border-white/40 rounded-lg p-4 max-w-md mx-auto">
+                        <i class="fas fa-user-check text-4xl text-white mb-2"></i>
+                        <p class="text-base font-bold text-white mb-1">👤 Expedição:</p>
+                        <p class="text-sm text-emerald-100">"Bipo a peça para dar baixa no estoque e embalo para envio"</p>
+                    </div>
+                </div>
+
+                <!-- Resumo de Interações -->
+                <div class="mt-12 bg-gradient-to-r from-blue-100 to-purple-100 border-3 border-blue-400 rounded-2xl p-8 shadow-xl">
+                    <h3 class="text-2xl font-black text-blue-900 text-center mb-6">
+                        <i class="fas fa-chart-line mr-2"></i>
+                        Resumo de Controle e Facilidade
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="bg-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-3 shadow-lg">
+                                <i class="fas fa-users text-4xl text-blue-600"></i>
+                            </div>
+                            <p class="text-3xl font-black text-blue-900 mb-1">4-5</p>
+                            <p class="text-sm text-gray-700 font-semibold">Funcionários Envolvidos</p>
+                            <p class="text-xs text-gray-600 mt-1">Fundidor, Raspador, Pintor, Estoquista</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-3 shadow-lg">
+                                <i class="fas fa-mobile-alt text-4xl text-emerald-600"></i>
+                            </div>
+                            <p class="text-3xl font-black text-emerald-900 mb-1">6-8</p>
+                            <p class="text-sm text-gray-700 font-semibold">Bipagens por Peça</p>
+                            <p class="text-xs text-gray-600 mt-1">Simples e rápido em cada etapa</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="bg-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-3 shadow-lg">
+                                <i class="fas fa-clock text-4xl text-purple-600"></i>
+                            </div>
+                            <p class="text-3xl font-black text-purple-900 mb-1">5-10s</p>
+                            <p class="text-sm text-gray-700 font-semibold">Por Apontamento</p>
+                            <p class="text-xs text-gray-600 mt-1">Não atrasa a produção</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 text-center">
+                        <p class="text-lg font-bold text-blue-900">
+                            💡 O sistema trabalha <span class="text-emerald-600">PARA</span> o funcionário, não contra ele!
+                        </p>
+                        <p class="text-sm text-gray-700 mt-2">
+                            Cada bipagem protege o trabalho dele e garante pagamento justo baseado em produtividade real.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fluxograma de Operação Interativo -->
+    <section class="py-12 sm:py-20 bg-gradient-to-b from-gray-50 to-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-black text-blue-900 mb-4">
+                    Como o Integra Fábrica funciona na prática?
+                </h2>
+                <p class="text-gray-600 text-base sm:text-lg">
+                    Passe o mouse sobre as etapas para ver a operação.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto relative">
+                <!-- Linha vertical de conexão para mobile -->
+                <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-900 via-emerald-500 to-blue-900 md:hidden"></div>
+
+                <!-- Card 1: Fase de Fundição -->
+                <div class="group relative bg-white border-2 border-gray-300 rounded-xl p-6 hover:border-emerald-500 hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer">
+                    <!-- Badge de número -->
+                    <div class="absolute -top-3 -left-3 w-10 h-10 bg-blue-900 group-hover:bg-emerald-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg transition-all duration-500 z-10">
+                        1
+                    </div>
+
+                    <!-- Ícone e Título -->
+                    <div class="text-center mb-4">
+                        <div class="flex justify-center mb-4">
+                            <i class="fas fa-tint text-5xl text-blue-900 group-hover:text-emerald-500 transition-colors duration-500"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-blue-900 group-hover:text-emerald-600 transition-colors duration-500">
+                            Fase de Fundição
+                        </h3>
+                        <p class="text-sm text-gray-500 font-semibold">(Abertura do Lote)</p>
+                    </div>
+
+                    <!-- Detalhes visíveis no hover -->
+                    <div class="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-500 ease-in-out">
+                        <div class="pt-4 border-t-2 border-emerald-200 space-y-3">
+                            <div class="bg-blue-50 p-3 rounded-lg">
+                                <p class="text-xs font-bold text-blue-900 mb-1">
+                                    <i class="fas fa-user-tie mr-1"></i> Ação do Operador:
+                                </p>
+                                <p class="text-xs text-gray-700">
+                                    Operador usa o celular para abrir a Ordem de Produção (OP).
+                                </p>
+                            </div>
+                            <div class="bg-emerald-50 p-3 rounded-lg">
+                                <p class="text-xs font-bold text-emerald-900 mb-1">
+                                    <i class="fas fa-cogs mr-1"></i> Ação do Sistema:
+                                </p>
+                                <p class="text-xs text-gray-700">
+                                    O sistema dá baixa automática na proporção exata de gesso e água e calcula o custo inicial da peça.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Secagem e Raspagem -->
+                <div class="group relative bg-white border-2 border-gray-300 rounded-xl p-6 hover:border-emerald-500 hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer">
+                    <!-- Badge de número -->
+                    <div class="absolute -top-3 -left-3 w-10 h-10 bg-blue-900 group-hover:bg-emerald-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg transition-all duration-500 z-10">
+                        2
+                    </div>
+
+                    <!-- Ícone e Título -->
+                    <div class="text-center mb-4">
+                        <div class="flex justify-center mb-4">
+                            <i class="fas fa-tools text-5xl text-blue-900 group-hover:text-emerald-500 transition-colors duration-500"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-blue-900 group-hover:text-emerald-600 transition-colors duration-500">
+                            Secagem e Raspagem
+                        </h3>
+                        <p class="text-sm text-gray-500 font-semibold">(Controle de Qualidade)</p>
+                    </div>
+
+                    <!-- Detalhes visíveis no hover -->
+                    <div class="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-500 ease-in-out">
+                        <div class="pt-4 border-t-2 border-emerald-200 space-y-3">
+                            <div class="bg-blue-50 p-3 rounded-lg">
+                                <p class="text-xs font-bold text-blue-900 mb-1">
+                                    <i class="fas fa-user-tie mr-1"></i> Ação do Operador:
+                                </p>
+                                <p class="text-xs text-gray-700">
+                                    Operador aponta o QR Code do lote e informa se alguma peça quebrou na raspagem.
+                                </p>
+                            </div>
+                            <div class="bg-emerald-50 p-3 rounded-lg">
+                                <p class="text-xs font-bold text-emerald-900 mb-1">
+                                    <i class="fas fa-cogs mr-1"></i> Ação do Sistema:
+                                </p>
+                                <p class="text-xs text-gray-700">
+                                    O sistema registra a perda, recalcula o Custo Médio das peças boas e gera o <span class="tooltip">índice de refugo<span class="tooltiptext">% de peças quebradas</span></span> do funcionário.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Setor de Pintura -->
+                <div class="group relative bg-white border-2 border-gray-300 rounded-xl p-6 hover:border-emerald-500 hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer">
+                    <!-- Badge de número -->
+                    <div class="absolute -top-3 -left-3 w-10 h-10 bg-blue-900 group-hover:bg-emerald-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg transition-all duration-500 z-10">
+                        3
+                    </div>
+
+                    <!-- Ícone e Título -->
+                    <div class="text-center mb-4">
+                        <div class="flex justify-center mb-4">
+                            <i class="fas fa-paint-brush text-5xl text-blue-900 group-hover:text-emerald-500 transition-colors duration-500"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-blue-900 group-hover:text-emerald-600 transition-colors duration-500">
+                            Setor de Pintura
+                        </h3>
+                        <p class="text-sm text-gray-500 font-semibold">(Acabamento)</p>
+                    </div>
+
+                    <!-- Detalhes visíveis no hover -->
+                    <div class="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-500 ease-in-out">
+                        <div class="pt-4 border-t-2 border-emerald-200 space-y-3">
+                            <div class="bg-blue-50 p-3 rounded-lg">
+                                <p class="text-xs font-bold text-blue-900 mb-1">
+                                    <i class="fas fa-user-tie mr-1"></i> Ação do Operador:
+                                </p>
+                                <p class="text-xs text-gray-700">
+                                    O pintor transfere a peça crua para a pintura e bipa a finalização.
+                                </p>
+                            </div>
+                            <div class="bg-emerald-50 p-3 rounded-lg">
+                                <p class="text-xs font-bold text-emerald-900 mb-1">
+                                    <i class="fas fa-cogs mr-1"></i> Ação do Sistema:
+                                </p>
+                                <p class="text-xs text-gray-700">
+                                    O sistema dá baixa nos insumos de pintura (tintas, verniz) e adiciona este custo ao valor final da peça no estoque.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Expedição e Venda -->
+                <div class="group relative bg-white border-2 border-gray-300 rounded-xl p-6 hover:border-emerald-500 hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer">
+                    <!-- Badge de número -->
+                    <div class="absolute -top-3 -left-3 w-10 h-10 bg-blue-900 group-hover:bg-emerald-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg transition-all duration-500 z-10">
+                        4
+                    </div>
+
+                    <!-- Ícone e Título -->
+                    <div class="text-center mb-4">
+                        <div class="flex justify-center mb-4">
+                            <i class="fas fa-shopping-cart text-5xl text-blue-900 group-hover:text-emerald-500 transition-colors duration-500"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-blue-900 group-hover:text-emerald-600 transition-colors duration-500">
+                            Expedição e Venda
+                        </h3>
+                        <p class="text-sm text-gray-500 font-semibold">(Estoque Inteligente)</p>
+                    </div>
+
+                    <!-- Detalhes visíveis no hover -->
+                    <div class="overflow-hidden max-h-0 group-hover:max-h-96 transition-all duration-500 ease-in-out">
+                        <div class="pt-4 border-t-2 border-emerald-200 space-y-3">
+                            <div class="bg-blue-50 p-3 rounded-lg">
+                                <p class="text-xs font-bold text-blue-900 mb-1">
+                                    <i class="fas fa-user-tie mr-1"></i> Ação do Operador:
+                                </p>
+                                <p class="text-xs text-gray-700">
+                                    O estoquista separa a peça pintada para despacho.
+                                </p>
+                            </div>
+                            <div class="bg-emerald-50 p-3 rounded-lg">
+                                <p class="text-xs font-bold text-emerald-900 mb-1">
+                                    <i class="fas fa-cogs mr-1"></i> Ação do Sistema:
+                                </p>
+                                <p class="text-xs text-gray-700">
+                                    O saldo físico é atualizado em tempo real e, se integrado, a disponibilidade cai instantaneamente no Mercado Livre e Shopee.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Preços e Modelos -->
+    <section class="py-12 sm:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
+                
+                <!-- Card 1 - OPÇÃO A (DESTAQUE) -->
+                <div class="relative border-4 border-emerald-500 rounded-2xl p-6 sm:p-8 bg-white card-highlight transform lg:scale-105 lg:hover:scale-110 transition-transform duration-300">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-emerald-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                            Recomendado
+                        </span>
+                    </div>
+                    
+                    <div class="text-center mb-6 mt-4">
+                        <h3 class="text-2xl sm:text-3xl font-black text-blue-900 mb-2">
+                            Opção A - Gestão Integrada 360º
+                        </h3>
+                        <p class="text-emerald-600 font-semibold text-sm sm:text-base">
+                            Chão de Fábrica + E-commerce em Tempo Real
+                        </p>
+                        <div class="bg-emerald-50 border-2 border-emerald-300 rounded-lg p-3 mt-3">
+                            <p class="text-xs font-black text-emerald-900 uppercase mb-1">🔥 DIFERENCIAL EXCLUSIVO:</p>
+                            <p class="text-sm text-emerald-800 font-bold">
+                                Conecta direto com seu Mercado Livre e Shopee
+                            </p>
+                            <p class="text-xs text-emerald-700 mt-1">
+                                Vendeu online? Baixa automática na fábrica. Produziu? Atualiza na hora nos anúncios.
+                            </p>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-emerald-500 text-xl mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-700">Cálculo automático do custo real e Ficha Técnica de cada produto.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-emerald-500 text-xl mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-700">Apontamento de produtividade e <span class="tooltip">refugo<span class="tooltiptext">Peças quebradas ou com defeito que não podem ser vendidas</span></span> por funcionário.</span>
+                        </li>
+                        <li class="flex items-start gap-3 bg-emerald-50 p-3 rounded-lg border-2 border-emerald-200">
+                            <i class="fas fa-sync-alt text-emerald-600 text-xl mt-0.5 flex-shrink-0 animate-spin" style="animation-duration: 3s;"></i>
+                            <span class="text-gray-900 font-bold">Sincronização BIDIRECIONAL com Mercado Livre e Shopee: Vendeu lá? Baixa aqui. Produziu aqui? Aparece lá.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-emerald-500 text-xl mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-700">Sistema TRAVA a venda online se não tiver estoque físico na fábrica.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-emerald-500 text-xl mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-700">4 Celulares Coletores Inclusos no Aluguel.</span>
+                        </li>
+                    </ul>
+
+                    <div class="border-t-2 border-gray-200 pt-6 mb-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-gray-600 font-semibold">Investimento Inicial (Implantação):</span>
+                            <span class="text-2xl font-bold text-blue-900">R$ 4.500,00</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600 font-semibold">Mensalidade:</span>
+                            <span class="text-3xl font-black text-emerald-600">R$ 1.390,00</span>
+                        </div>
+                    </div>
+
+                    <button class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-6 rounded-xl text-lg transition-all duration-300 shadow-lg hover:shadow-xl">
+                        Selecionar Opção A
+                    </button>
+                </div>
+
+                <!-- Card 2 - OPÇÃO B -->
+                <div class="border-2 border-gray-300 rounded-2xl p-6 sm:p-8 bg-white hover:shadow-lg transition-shadow duration-300">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl sm:text-3xl font-black text-blue-900 mb-2">
+                            Opção B - Controle Operacional Interno
+                        </h3>
+                        <p class="text-gray-600 font-semibold text-sm sm:text-base">
+                            Foco Estrito no Chão de Fábrica
+                        </p>
+                        <div class="bg-yellow-50 border-2 border-yellow-400 rounded-lg p-3 mt-3">
+                            <p class="text-xs font-black text-yellow-900 uppercase mb-1">⚠️ LIMITAÇÃO IMPORTANTE:</p>
+                            <p class="text-sm text-yellow-800 font-bold">
+                                NÃO conecta com Mercado Livre ou Shopee
+                            </p>
+                            <p class="text-xs text-yellow-700 mt-1">
+                                Você precisa dar baixa manual nas vendas online
+                            </p>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-gray-500 text-xl mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-700">Cálculo automático do custo real e Ficha Técnica.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-gray-500 text-xl mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-700">Apontamento de produtividade e <span class="tooltip">refugo<span class="tooltiptext">Peças quebradas ou com defeito que não podem ser vendidas</span></span>.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-gray-500 text-xl mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-700">App <span class="tooltip">Offline-First<span class="tooltiptext">Funciona sem internet e sincroniza depois quando conectar</span></span> para áreas sem internet.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-gray-500 text-xl mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-700">4 Celulares Coletores Inclusos no Aluguel.</span>
+                        </li>
+                        <li class="flex items-start gap-3 bg-red-50 p-3 rounded-lg border-2 border-red-300">
+                            <i class="fas fa-exclamation-triangle text-red-600 text-xl mt-0.5 flex-shrink-0"></i>
+                            <span class="text-red-700 font-bold">Vendeu no Mercado Livre ou Shopee? VOCÊ precisa entrar no sistema e dar baixa manual no estoque. Risco alto de esquecer e vender peça que não tem.</span>
+                        </li>
+                    </ul>
+
+                    <div class="border-t-2 border-gray-200 pt-6 mb-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-gray-600 font-semibold">Investimento Inicial (Implantação):</span>
+                            <span class="text-2xl font-bold text-blue-900">R$ 3.000,00</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600 font-semibold">Mensalidade:</span>
+                            <span class="text-3xl font-black text-gray-700">R$ 950,00</span>
+                        </div>
+                    </div>
+
+                    <button class="w-full border-2 border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white font-bold py-4 px-6 rounded-xl text-lg transition-all duration-300">
+                        Selecionar Opção B
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabela de Comparação de Riscos -->
+    <section class="py-12 sm:py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl sm:text-4xl font-black text-center text-blue-900 mb-10">
+                Tabela de Comparação de Riscos
+            </h2>
+            
+            <div class="overflow-x-auto shadow-xl rounded-xl">
+                <table class="w-full bg-white border-collapse min-w-[640px]">
+                    <thead>
+                        <tr class="bg-blue-900 text-white">
+                            <th class="py-4 px-4 sm:px-6 text-left font-bold text-sm sm:text-base">Característica</th>
+                            <th class="py-4 px-4 sm:px-6 text-left font-bold text-sm sm:text-base">Opção A (Integrado)</th>
+                            <th class="py-4 px-4 sm:px-6 text-left font-bold text-sm sm:text-base">Opção B (Interno)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-200 hover:bg-gray-50">
+                            <td class="py-4 px-4 sm:px-6 font-semibold text-gray-700 text-sm sm:text-base">Cálculo do Custo Real / Lucro por Peça</td>
+                            <td class="py-4 px-4 sm:px-6 text-gray-700 text-sm sm:text-base">Automático</td>
+                            <td class="py-4 px-4 sm:px-6 text-gray-700 text-sm sm:text-base">Automático</td>
+                        </tr>
+                        <tr class="bg-gray-50 border-b border-gray-200 hover:bg-gray-100">
+                            <td class="py-4 px-4 sm:px-6 font-semibold text-gray-700 text-sm sm:text-base">Controle de <span class="tooltip">Refugo<span class="tooltiptext">Peças quebradas ou com defeito</span></span></td>
+                            <td class="py-4 px-4 sm:px-6 text-gray-700 text-sm sm:text-base">Sim</td>
+                            <td class="py-4 px-4 sm:px-6 text-gray-700 text-sm sm:text-base">Sim</td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-gray-50">
+                            <td class="py-4 px-4 sm:px-6 font-semibold text-gray-700 text-sm sm:text-base">Risco de Vender sem Estoque (Furo)</td>
+                            <td class="py-4 px-4 sm:px-6 text-sm sm:text-base">
+                                <span class="inline-block bg-green-100 text-green-800 font-bold px-3 py-2 rounded-lg border-2 border-green-400">
+                                    <i class="fas fa-shield-alt mr-1"></i>
+                                    IMPOSSÍVEL<br>
+                                    <span class="text-xs font-normal">Sistema trava venda online se não tiver na fábrica</span>
+                                </span>
+                            </td>
+                            <td class="py-4 px-4 sm:px-6 text-sm sm:text-base">
+                                <span class="inline-block bg-red-100 text-red-800 font-bold px-3 py-2 rounded-lg border-2 border-red-400">
+                                    <i class="fas fa-exclamation-triangle mr-1"></i>
+                                    ALTÍSSIMO<br>
+                                    <span class="text-xs font-normal">Depende de você lembrar de dar baixa manual</span>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="bg-gray-50 border-b border-gray-200 hover:bg-gray-100">
+                            <td class="py-4 px-4 sm:px-6 font-semibold text-gray-700 text-sm sm:text-base">Sincronização com Mercado Livre / Shopee</td>
+                            <td class="py-4 px-4 sm:px-6 text-sm sm:text-base">
+                                <span class="inline-block bg-emerald-100 text-emerald-800 font-bold px-3 py-2 rounded-lg border-2 border-emerald-400">
+                                    <i class="fas fa-sync-alt mr-1"></i>
+                                    AUTOMÁTICA EM TEMPO REAL<br>
+                                    <span class="text-xs font-normal">Vendeu online? Baixa na fábrica em 1 segundo</span>
+                                </span>
+                            </td>
+                            <td class="py-4 px-4 sm:px-6 text-sm sm:text-base">
+                                <span class="inline-block bg-gray-300 text-gray-800 font-bold px-3 py-2 rounded-lg border-2 border-gray-500">
+                                    <i class="fas fa-ban mr-1"></i>
+                                    NÃO DISPONÍVEL<br>
+                                    <span class="text-xs font-normal">Você precisa atualizar manualmente</span>
+                                </span>
+                            </td>
+                        </tr>
+                        <tr class="bg-gray-50 border-b border-gray-200 hover:bg-gray-100">
+                            <td class="py-4 px-4 sm:px-6 font-semibold text-gray-700 text-sm sm:text-base">Necessidade de Internet na Fábrica</td>
+                            <td class="py-4 px-4 sm:px-6 text-gray-700 text-sm sm:text-base">Alta</td>
+                            <td class="py-4 px-4 sm:px-6 text-gray-700 text-sm sm:text-base">Baixa (App sincroniza offline)</td>
+                        </tr>
+                        <tr class="hover:bg-gray-50">
+                            <td class="py-4 px-4 sm:px-6 font-semibold text-gray-700 text-sm sm:text-base">Tempo de Implantação</td>
+                            <td class="py-4 px-4 sm:px-6 text-gray-700 text-sm sm:text-base">45 a 60 dias</td>
+                            <td class="py-4 px-4 sm:px-6 text-gray-700 text-sm sm:text-base">30 dias</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Explicativa: Integração com E-commerce -->
+    <section class="py-12 sm:py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white relative overflow-hidden">
+        <!-- Padrão de fundo decorativo -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-10 left-10 w-40 h-40 bg-emerald-400 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-60 h-60 bg-blue-400 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center mb-12">
+                <div class="inline-block bg-emerald-500 text-white px-6 py-2 rounded-full font-bold text-sm mb-4 shadow-lg">
+                    💎 O DIFERENCIAL QUE JUSTIFICA O INVESTIMENTO
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-black mb-4">
+                    Como Funciona a Integração com Mercado Livre e Shopee?
+                </h2>
+                <p class="text-blue-100 text-base sm:text-lg max-w-3xl mx-auto">
+                    Entenda em detalhes por que a <strong>Opção A</strong> elimina completamente o risco de furos de estoque
+                </p>
+            </div>
+
+            <!-- Cenário Comparativo -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
+                <!-- SEM Integração (Opção B) -->
+                <div class="bg-red-900/40 backdrop-blur-sm border-3 border-red-400 rounded-2xl p-6 shadow-2xl">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-exclamation-triangle text-5xl text-red-300 mb-3"></i>
+                        <h3 class="text-2xl font-black text-red-200">SEM Integração (Opção B)</h3>
+                        <p class="text-red-300 text-sm mt-2">R$ 950/mês - Controle apenas interno</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-white/10 rounded-lg p-4">
+                            <p class="font-bold text-yellow-300 text-sm mb-2">09:00 - Você produz 10 peças</p>
+                            <p class="text-sm text-white">Sistema registra: <strong>10 em estoque</strong></p>
+                        </div>
+                        
+                        <div class="bg-white/10 rounded-lg p-4">
+                            <p class="font-bold text-yellow-300 text-sm mb-2">10:30 - Cliente compra 1 peça no Mercado Livre</p>
+                            <p class="text-sm text-red-300">⚠️ Mercado Livre NÃO conversa com o sistema</p>
+                            <p class="text-sm text-white">Sistema ainda mostra: <strong>10 em estoque</strong></p>
+                        </div>
+
+                        <div class="bg-white/10 rounded-lg p-4">
+                            <p class="font-bold text-yellow-300 text-sm mb-2">11:00 - Cliente compra 1 na Shopee</p>
+                            <p class="text-sm text-red-300">⚠️ Shopee NÃO conversa com o sistema</p>
+                            <p class="text-sm text-white">Sistema ainda mostra: <strong>10 em estoque</strong></p>
+                        </div>
+
+                        <div class="bg-red-800/60 border-2 border-red-500 rounded-lg p-4">
+                            <p class="font-bold text-red-200 text-sm mb-2">14:00 - Você LEMBRA de dar baixa</p>
+                            <p class="text-sm text-white">Entra no sistema e baixa manualmente as 2 vendas</p>
+                            <p class="text-sm text-white mt-2">Sistema agora: <strong>8 em estoque</strong></p>
+                        </div>
+
+                        <div class="bg-red-600 border-2 border-red-400 rounded-lg p-4">
+                            <p class="font-bold text-white text-base mb-2">💣 O PROBLEMA:</p>
+                            <p class="text-sm text-red-100">
+                                Das 10h30 até às 14h (3h30min), seus anúncios estavam MENTINDO. 
+                                Se alguém comprou nesse período, você vendeu algo que não tinha.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COM Integração (Opção A) -->
+                <div class="bg-emerald-900/40 backdrop-blur-sm border-3 border-emerald-400 rounded-2xl p-6 shadow-2xl">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-shield-alt text-5xl text-emerald-300 mb-3"></i>
+                        <h3 class="text-2xl font-black text-emerald-200">COM Integração (Opção A)</h3>
+                        <p class="text-emerald-300 text-sm mt-2">R$ 1.390/mês - Sincronização em tempo real</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-white/10 rounded-lg p-4">
+                            <p class="font-bold text-yellow-300 text-sm mb-2">09:00 - Você produz 10 peças</p>
+                            <p class="text-sm text-white">Sistema registra: <strong>10 em estoque</strong></p>
+                            <p class="text-sm text-emerald-300 mt-1">
+                                ✅ Mercado Livre atualiza para 10<br>
+                                ✅ Shopee atualiza para 10
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white/10 rounded-lg p-4">
+                            <p class="font-bold text-yellow-300 text-sm mb-2">10:30:45 - Cliente compra 1 no ML</p>
+                            <p class="text-sm text-emerald-300">
+                                ✅ 10:30:46 (1 segundo): Sistema baixa para 9<br>
+                                ✅ 10:30:46: Shopee atualiza para 9<br>
+                                ✅ 10:30:46: Outros anúncios do ML atualizam para 9
+                            </p>
+                        </div>
+
+                        <div class="bg-white/10 rounded-lg p-4">
+                            <p class="font-bold text-yellow-300 text-sm mb-2">11:15:20 - Cliente compra 1 na Shopee</p>
+                            <p class="text-sm text-emerald-300">
+                                ✅ 11:15:21 (1 segundo): Sistema baixa para 8<br>
+                                ✅ 11:15:21: Mercado Livre atualiza para 8<br>
+                                ✅ 11:15:21: Shopee atualiza para 8
+                            </p>
+                        </div>
+
+                        <div class="bg-emerald-800/60 border-2 border-emerald-500 rounded-lg p-4">
+                            <p class="font-bold text-emerald-200 text-sm mb-2">14:00 - Você NÃO precisa fazer NADA</p>
+                            <p class="text-sm text-white">Sistema: <strong>8 em estoque</strong> (correto)</p>
+                            <p class="text-sm text-emerald-300 mt-2">
+                                Seus anúncios SEMPRE mostram a quantidade real
+                            </p>
+                        </div>
+
+                        <div class="bg-emerald-600 border-2 border-emerald-400 rounded-lg p-4">
+                            <p class="font-bold text-white text-base mb-2">🔒 A PROTEÇÃO:</p>
+                            <p class="text-sm text-emerald-100">
+                                IMPOSSÍVEL vender sem estoque. O sistema sincroniza em 1 segundo.
+                                Você NUNCA mais vai receber reclamação de "comprei mas não tem".
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ROI da Integração -->
+            <div class="max-w-4xl mx-auto bg-white/10 backdrop-blur-sm border-2 border-white/30 rounded-2xl p-8 text-center">
+                <h3 class="text-2xl font-black mb-4">
+                    <i class="fas fa-calculator text-emerald-400 mr-2"></i>
+                    Vale a pena pagar R$ 440 a mais por mês?
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                    <div class="bg-red-500/20 border border-red-400 rounded-lg p-4">
+                        <p class="text-3xl font-black text-red-300 mb-1">1x</p>
+                        <p class="text-sm text-white">Furo de estoque por mês</p>
+                        <p class="text-xs text-red-200 mt-2">Perda: ~R$ 150 (peça + frete + reputação)</p>
+                    </div>
+                    <div class="bg-red-600/20 border border-red-500 rounded-lg p-4">
+                        <p class="text-3xl font-black text-red-300 mb-1">3h</p>
+                        <p class="text-sm text-white">Por semana dando baixa manual</p>
+                        <p class="text-xs text-red-200 mt-2">Custo: ~R$ 200/mês do seu tempo</p>
+                    </div>
+                    <div class="bg-red-700/20 border border-red-600 rounded-lg p-4">
+                        <p class="text-3xl font-black text-red-300 mb-1">10%</p>
+                        <p class="text-sm text-white">Risco de nota ruim no ML</p>
+                        <p class="text-xs text-red-200 mt-2">Impacto: Perda de vendas futuras</p>
+                    </div>
+                </div>
+                <div class="bg-emerald-600 border-2 border-emerald-400 rounded-xl p-6">
+                    <p class="text-xl font-black text-white mb-2">
+                        1 único furo de estoque JÁ paga a diferença de 3 meses!
+                    </p>
+                    <p class="text-sm text-emerald-100">
+                        E você ainda economiza horas de trabalho manual toda semana + protege sua reputação online
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Garantias e Compromissos de Serviço -->
+    <section class="py-12 sm:py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="inline-block bg-blue-900 text-white px-6 py-2 rounded-full font-bold text-sm mb-4 shadow-lg">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    VOCÊ INVESTE COM SEGURANÇA
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-black text-blue-900 mb-4">
+                    Garantias e Compromissos de Serviço
+                </h2>
+                <p class="text-gray-600 text-base sm:text-lg max-w-3xl mx-auto">
+                    Transparência total sobre o que está incluso, como funciona a implantação e quais são as garantias
+                </p>
+            </div>
+
+            <!-- Hardware Incluído -->
+            <div class="max-w-6xl mx-auto mb-12">
+                <div class="bg-white border-2 border-blue-200 rounded-2xl p-8 shadow-xl">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-mobile-alt text-4xl text-blue-900"></i>
+                        <h3 class="text-2xl font-black text-blue-900">Hardware Incluído no Aluguel</h3>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Especificações dos Celulares -->
+                        <div class="bg-blue-50 rounded-xl p-6">
+                            <h4 class="font-bold text-lg text-blue-900 mb-4 flex items-center gap-2">
+                                <i class="fas fa-check-circle text-emerald-600"></i>
+                                4 Celulares Coletores Profissionais
+                            </h4>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start gap-2">
+                                    <i class="fas fa-arrow-right text-blue-600 mt-1"></i>
+                                    <span><strong>Modelo:</strong> Android Enterprise com leitor de códigos integrado</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fas fa-arrow-right text-blue-600 mt-1"></i>
+                                    <span><strong>Resistência:</strong> IP65 (resistente a poeira e água de gesso)</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fas fa-arrow-right text-blue-600 mt-1"></i>
+                                    <span><strong>Bateria:</strong> 4000mAh+ (dura turno completo sem recarga)</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fas fa-arrow-right text-blue-600 mt-1"></i>
+                                    <span><strong>Leitor:</strong> Scanner 2D de alta velocidade (bipa em menos de 1 segundo)</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fas fa-arrow-right text-blue-600 mt-1"></i>
+                                    <span><strong>Proteção:</strong> Capa emborrachada anti-impacto incluída</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- O que está incluído -->
+                        <div class="bg-emerald-50 rounded-xl p-6">
+                            <h4 class="font-bold text-lg text-emerald-900 mb-4 flex items-center gap-2">
+                                <i class="fas fa-gift text-emerald-600"></i>
+                                O Que Está Incluso (Zero Custo Extra)
+                            </h4>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start gap-2">
+                                    <i class="fas fa-check text-emerald-600 mt-1"></i>
+                                    <span>Chips de dados 4G com franquia mensal (por aparelho)</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fas fa-check text-emerald-600 mt-1"></i>
+                                    <span>Carregadores, cabos e películas de proteção</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fas fa-check text-emerald-600 mt-1"></i>
+                                    <span>Aplicativo instalado e configurado</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fas fa-check text-emerald-600 mt-1"></i>
+                                    <span>Atualizações de software remotas e automáticas</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fas fa-check text-emerald-600 mt-1"></i>
+                                    <span>Gestão remota dos aparelhos (bloqueio em caso de furto)</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <i class="fas fa-check text-emerald-600 mt-1"></i>
+                                    <span><strong class="text-emerald-700">Você NÃO compra os celulares!</strong> No fim do contrato, devolve</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Processo de Implantação -->
+            <div class="max-w-6xl mx-auto mb-12">
+                <div class="bg-white border-2 border-purple-200 rounded-2xl p-8 shadow-xl">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-tasks text-4xl text-purple-700"></i>
+                        <h3 class="text-2xl font-black text-purple-900">Como Funciona a Instalação na Sua Fábrica?</h3>
+                    </div>
+                    
+                    <!-- Timeline de Implantação -->
+                    <div class="relative border-l-4 border-purple-300 pl-8 space-y-8 ml-4">
+                        <!-- Etapa 1 -->
+                        <div class="relative">
+                            <div class="absolute -left-11 top-0 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
+                                1
+                            </div>
+                            <div class="bg-purple-50 rounded-lg p-5">
+                                <h4 class="font-bold text-purple-900 mb-2">
+                                    📋 Dias 1-7: Cadastro Inicial e Planejamento
+                                </h4>
+                                <ul class="text-gray-700 text-sm space-y-1">
+                                    <li>✓ Cadastro dos seus produtos (fichas técnicas com matéria-prima e tempo)</li>
+                                    <li>✓ Cadastro de fornecedores, funcionários e estoques</li>
+                                    <li>✓ Configuração das etapas de produção da sua fábrica</li>
+                                    <li>✓ Geração e impressão dos QR Codes para produtos e locais</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Etapa 2 -->
+                        <div class="relative">
+                            <div class="absolute -left-11 top-0 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
+                                2
+                            </div>
+                            <div class="bg-purple-50 rounded-lg p-5">
+                                <h4 class="font-bold text-purple-900 mb-2">
+                                    🚚 Dias 8-10: Envio e Instalação de Hardware
+                                </h4>
+                                <ul class="text-gray-700 text-sm space-y-1">
+                                    <li>✓ Envio dos 4 celulares coletores via Sedex/transportadora</li>
+                                    <li>✓ Aplicativo já instalado e configurado (você só liga o aparelho)</li>
+                                    <li>✓ Instalação dos QR Codes nas bancadas e estoques</li>
+                                    <li>✓ Teste de conexão com internet da fábrica</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Etapa 3 -->
+                        <div class="relative">
+                            <div class="absolute -left-11 top-0 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
+                                3
+                            </div>
+                            <div class="bg-purple-50 rounded-lg p-5">
+                                <h4 class="font-bold text-purple-900 mb-2">
+                                    🎓 Dias 11-14: Treinamento da Equipe
+                                </h4>
+                                <ul class="text-gray-700 text-sm space-y-1">
+                                    <li>✓ <strong>Treinamento online via videochamada</strong> (2 a 3 horas)</li>
+                                    <li>✓ Explicação didática de como bipar em cada etapa</li>
+                                    <li>✓ Simulação de produção completa do início ao fim</li>
+                                    <li>✓ Gravação da sessão disponibilizada para novos funcionários</li>
+                                    <li>✓ Manual digital com prints e vídeos passo a passo</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Etapa 4 -->
+                        <div class="relative">
+                            <div class="absolute -left-11 top-0 w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg">
+                                ✓
+                            </div>
+                            <div class="bg-emerald-50 rounded-lg p-5 border-2 border-emerald-400">
+                                <h4 class="font-bold text-emerald-900 mb-2">
+                                    🚀 Dias 15-30: Operação Assistida (Go Live)
+                                </h4>
+                                <ul class="text-gray-700 text-sm space-y-1">
+                                    <li>✓ Produção real começando a ser registrada</li>
+                                    <li>✓ Suporte intensivo via WhatsApp para tirar dúvidas</li>
+                                    <li>✓ Ajustes finos nos cadastros conforme necessidade</li>
+                                    <li>✓ <strong>Sistema 100% operacional até o dia 30</strong></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded">
+                        <p class="text-sm text-gray-700">
+                            <i class="fas fa-info-circle text-yellow-600 mr-2"></i>
+                            <strong>Importante:</strong> Durante todo o processo, você tem acesso direto ao time técnico da BetaUp via WhatsApp.
+                            Respondemos em até <strong>4 horas úteis</strong>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Garantias Técnicas -->
+            <div class="max-w-6xl mx-auto mb-12">
+                <div class="bg-white border-2 border-emerald-200 rounded-2xl p-8 shadow-xl">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-shield-alt text-4xl text-emerald-700"></i>
+                        <h3 class="text-2xl font-black text-emerald-900">Garantias Técnicas e SLA</h3>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Garantia de Hardware -->
+                        <div class="bg-emerald-50 rounded-xl p-6 border-l-4 border-emerald-500">
+                            <h4 class="font-bold text-lg text-emerald-900 mb-3 flex items-center gap-2">
+                                <i class="fas fa-sync-alt text-emerald-600"></i>
+                                Substituição de Hardware
+                            </h4>
+                            <ul class="space-y-2 text-gray-700 text-sm">
+                                <li><strong>Defeito técnico:</strong> Troca em até 24h úteis (sem custo)</li>
+                                <li><strong>Mau uso/quebra:</strong> Franquia de R$ 250 por aparelho</li>
+                                <li><strong>Furto:</strong> Substituição mediante BO + franquia de R$ 350</li>
+                                <li><strong>Desgaste natural:</strong> Troca gratuita após 18 meses de uso</li>
+                            </ul>
+                        </div>
+
+                        <!-- Suporte Técnico -->
+                        <div class="bg-blue-50 rounded-xl p-6 border-l-4 border-blue-500">
+                            <h4 class="font-bold text-lg text-blue-900 mb-3 flex items-center gap-2">
+                                <i class="fas fa-headset text-blue-600"></i>
+                                Suporte Técnico
+                            </h4>
+                            <ul class="space-y-2 text-gray-700 text-sm">
+                                <li><strong>Tempo de resposta:</strong> Até 4 horas úteis via WhatsApp</li>
+                                <li><strong>Horário:</strong> Segunda a Sexta, 8h às 18h</li>
+                                <li><strong>Urgências:</strong> Suporte via telefone em casos críticos</li>
+                                <li><strong>Canal:</strong> WhatsApp dedicado da BetaUp</li>
+                            </ul>
+                        </div>
+
+                        <!-- Disponibilidade -->
+                        <div class="bg-purple-50 rounded-xl p-6 border-l-4 border-purple-500">
+                            <h4 class="font-bold text-lg text-purple-900 mb-3 flex items-center gap-2">
+                                <i class="fas fa-server text-purple-600"></i>
+                                Disponibilidade do Sistema
+                            </h4>
+                            <ul class="space-y-2 text-gray-700 text-sm">
+                                <li><strong>Uptime garantido:</strong> 99,5% (até 3,6h offline por mês)</li>
+                                <li><strong>Modo offline:</strong> App funciona sem internet e sincroniza depois</li>
+                                <li><strong>Backups:</strong> Diários, criptografados e armazenados por 90 dias</li>
+                                <li><strong>Manutenções:</strong> Agendadas aos domingos, avisadas com 7 dias</li>
+                            </ul>
+                        </div>
+
+                        <!-- Segurança de Dados -->
+                        <div class="bg-gray-50 rounded-xl p-6 border-l-4 border-gray-500">
+                            <h4 class="font-bold text-lg text-gray-900 mb-3 flex items-center gap-2">
+                                <i class="fas fa-lock text-gray-600"></i>
+                                Segurança e Privacidade
+                            </h4>
+                            <ul class="space-y-2 text-gray-700 text-sm">
+                                <li><strong>LGPD:</strong> Conformidade total com Lei Geral de Proteção de Dados</li>
+                                <li><strong>Hospedagem:</strong> Servidores em datacenter nacional certificado</li>
+                                <li><strong>Criptografia:</strong> SSL/TLS em todas as comunicações</li>
+                                <li><strong>Propriedade:</strong> Seus dados são SEUS (exportação livre a qualquer momento)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Atualizações e Melhorias -->
+            <div class="max-w-6xl mx-auto">
+                <div class="bg-gradient-to-br from-blue-600 to-purple-700 rounded-2xl p-8 shadow-xl text-white">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="fas fa-rocket text-4xl"></i>
+                        <h3 class="text-2xl font-black">Atualizações Constantes Sem Custo Adicional</h3>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-5">
+                            <h4 class="font-bold text-lg mb-2 flex items-center gap-2">
+                                <i class="fas fa-code text-yellow-300"></i>
+                                Novas Funcionalidades
+                            </h4>
+                            <p class="text-sm text-blue-100">
+                                Melhorias e novos recursos são desenvolvidos continuamente e liberados automaticamente para todos os clientes.
+                            </p>
+                        </div>
+
+                        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-5">
+                            <h4 class="font-bold text-lg mb-2 flex items-center gap-2">
+                                <i class="fas fa-bug text-red-300"></i>
+                                Correções Prioritárias
+                            </h4>
+                            <p class="text-sm text-blue-100">
+                                Bugs reportados são corrigidos em até 7 dias úteis, com hotfixes críticos aplicados em até 24h.
+                            </p>
+                        </div>
+
+                        <div class="bg-white/10 backdrop-blur-sm rounded-lg p-5">
+                            <h4 class="font-bold text-lg mb-2 flex items-center gap-2">
+                                <i class="fas fa-comments text-green-300"></i>
+                                Sugestões de Clientes
+                            </h4>
+                            <p class="text-sm text-blue-100">
+                                Funcionalidades mais solicitadas pelos clientes entram no roadmap de desenvolvimento.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 bg-yellow-500 text-yellow-900 rounded-lg p-4 text-center font-bold">
+                        <i class="fas fa-star mr-2"></i>
+                        Você paga apenas a mensalidade. Zero cobrança por atualizações, melhorias ou treinamentos de reciclagem.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / CTA Final -->
+    <section class="gradient-bg py-12 sm:py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl sm:text-3xl font-bold text-white mb-8">
+                Qual modelo melhor se adequa ao seu planejamento financeiro?
+            </h2>
+            
+            <a href="https://wa.me/seu_numero" target="_blank" class="inline-flex items-center gap-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-8 rounded-xl text-lg transition-all duration-300 shadow-2xl hover:shadow-emerald-500/50 transform hover:scale-105">
+                <i class="fab fa-whatsapp text-2xl"></i>
+                Falar com a BetaUp
+            </a>
+        </div>
+    </section>
+
+    <!-- Copyright -->
+    <footer class="bg-blue-950 text-gray-300 py-6 text-center">
+        <p class="text-sm">
+            © 2026 BetaUp - Desenvolvendo o futuro da indústria.
+        </p>
+    </footer>
+
+    <script>
+        // Intersection Observer para animar cards quando aparecem na viewport
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observar todos os cards com animação fade-in-up
+        document.addEventListener('DOMContentLoaded', () => {
+            const animatedCards = document.querySelectorAll('.fade-in-up');
+            animatedCards.forEach(card => observer.observe(card));
+        });
+    </script>
+
+</body>
+</html>
