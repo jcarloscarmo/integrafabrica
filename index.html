@@ -9,6 +9,11 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
         
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 120px; /* Ajuste para o header fixo */
+        }
+        
         body {
             font-family: 'Inter', sans-serif;
         }
@@ -241,21 +246,49 @@
     
     <!-- Header Fixo -->
     <header class="sticky top-0 z-50 sticky-header shadow-lg">
-        <div class="container mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-3 sm:gap-0">
-            <div class="flex items-center gap-3">
-                <img src="logo.svg" alt="Integra Fábrica Logo" class="h-12 sm:h-14 md:h-16 w-auto brightness-0 invert">
-                <div class="text-white font-bold text-lg sm:text-xl">
-                    Integra Fábrica <span class="text-emerald-400">| by BetaUp</span>
+        <div class="container mx-auto px-4 py-3">
+            <!-- Primeira linha: Logo e Info -->
+            <div class="flex justify-between items-center mb-3">
+                <div class="flex items-center gap-3">
+                    <img src="logo.svg" alt="Integra Fábrica Logo" class="h-10 sm:h-12 md:h-14 w-auto brightness-0 invert">
+                    <div class="text-white font-bold text-base sm:text-lg md:text-xl">
+                        Integra Fábrica <span class="text-emerald-400">| by BetaUp</span>
+                    </div>
+                </div>
+                <div class="hidden md:block text-white text-sm">
+                    <span class="font-semibold">Proposta Comercial</span> | <span class="text-emerald-400">19/04/2026</span>
                 </div>
             </div>
-            <div class="text-white text-sm sm:text-base">
-                <span class="font-semibold">Proposta Comercial</span> | Data: <span class="text-emerald-400">19/04/2026</span>
-            </div>
+            
+            <!-- Segunda linha: Menu de Navegação -->
+            <nav class="flex flex-wrap justify-center gap-2 sm:gap-4 text-xs sm:text-sm">
+                <a href="#inicio" class="text-white hover:text-emerald-400 transition-colors px-2 py-1 rounded hover:bg-white/10">
+                    <i class="fas fa-home mr-1"></i><span class="hidden sm:inline">Início</span>
+                </a>
+                <a href="#perdas-ganhos" class="text-white hover:text-emerald-400 transition-colors px-2 py-1 rounded hover:bg-white/10">
+                    <i class="fas fa-chart-line mr-1"></i><span class="hidden sm:inline">Perdas vs Ganhos</span>
+                </a>
+                <a href="#fluxo" class="text-white hover:text-emerald-400 transition-colors px-2 py-1 rounded hover:bg-white/10">
+                    <i class="fas fa-sitemap mr-1"></i><span class="hidden sm:inline">Como Funciona</span>
+                </a>
+                <a href="#precos" class="text-white hover:text-emerald-400 transition-colors px-2 py-1 rounded hover:bg-white/10 font-semibold">
+                    <i class="fas fa-tags mr-1"></i><span class="hidden sm:inline">Planos</span>
+                </a>
+                <a href="#comparacao" class="text-white hover:text-emerald-400 transition-colors px-2 py-1 rounded hover:bg-white/10">
+                    <i class="fas fa-balance-scale mr-1"></i><span class="hidden sm:inline">Comparação</span>
+                </a>
+                <a href="#integracao" class="text-white hover:text-emerald-400 transition-colors px-2 py-1 rounded hover:bg-white/10">
+                    <i class="fas fa-sync mr-1"></i><span class="hidden sm:inline">Integração</span>
+                </a>
+                <a href="#garantias" class="text-white hover:text-emerald-400 transition-colors px-2 py-1 rounded hover:bg-white/10">
+                    <i class="fas fa-shield-alt mr-1"></i><span class="hidden sm:inline">Garantias</span>
+                </a>
+            </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="gradient-bg text-white py-16 sm:py-24">
+    <section id="inicio" class="gradient-bg text-white py-16 sm:py-24">
         <div class="container mx-auto px-4 text-center">
             <div class="flex justify-center mb-8">
                 <img src="logo.svg" alt="Integra Fábrica Logo" class="h-32 sm:h-40 md:h-48 lg:h-56 w-auto brightness-0 invert">
@@ -270,7 +303,7 @@
     </section>
 
     <!-- Mapa Visual de Perdas e Ganhos Financeiros -->
-    <section class="py-12 sm:py-20 bg-white">
+    <section id="perdas-ganhos" class="py-12 sm:py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl sm:text-4xl font-black text-blue-900 mb-4">
@@ -426,7 +459,7 @@
     </section>
 
     <!-- Fluxo Visual do Sistema -->
-    <section class="py-12 sm:py-20 bg-gradient-to-b from-blue-50 to-white">
+    <section id="fluxo" class="py-12 sm:py-20 bg-gradient-to-b from-blue-50 to-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl sm:text-4xl font-black text-blue-900 mb-4">
@@ -961,7 +994,7 @@
     </section>
 
     <!-- Seção de Preços e Modelos -->
-    <section class="py-12 sm:py-20 bg-white">
+    <section id="precos" class="py-12 sm:py-20 bg-white">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl sm:text-4xl font-black text-center text-blue-900 mb-10">
                 Escolha o Modelo Ideal para Sua Fábrica
@@ -1176,7 +1209,7 @@
     </section>
 
     <!-- Tabela de Comparação de Riscos -->
-    <section class="py-12 sm:py-20 bg-gray-100">
+    <section id="comparacao" class="py-12 sm:py-20 bg-gray-100">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl sm:text-4xl font-black text-center text-blue-900 mb-10">
                 Tabela de Comparação Completa
@@ -1266,7 +1299,7 @@
     </section>
 
     <!-- Seção Explicativa: Integração com E-commerce -->
-    <section class="py-12 sm:py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white relative overflow-hidden">
+    <section id="integracao" class="py-12 sm:py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white relative overflow-hidden">
         <!-- Padrão de fundo decorativo -->
         <div class="absolute inset-0 opacity-10">
             <div class="absolute top-10 left-10 w-40 h-40 bg-emerald-400 rounded-full blur-3xl"></div>
@@ -1421,7 +1454,7 @@
     </section>
 
     <!-- Seção de Garantias e Compromissos de Serviço -->
-    <section class="py-12 sm:py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="garantias" class="py-12 sm:py-20 bg-gradient-to-br from-gray-50 to-blue-50">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <div class="inline-block bg-blue-900 text-white px-6 py-2 rounded-full font-bold text-sm mb-4 shadow-lg">
