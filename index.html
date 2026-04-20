@@ -81,28 +81,29 @@
             }
         }
         
+        /* Estado inicial - elementos invisíveis até serem observados */
         .fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
             opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
+                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Estado visível quando entra no viewport */
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         /* Delays escalonados para animação em cascata */
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
-        .delay-5 { animation-delay: 0.5s; }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+        .delay-6 { transition-delay: 0.6s; }
+        .delay-7 { transition-delay: 0.7s; }
+        .delay-8 { transition-delay: 0.8s; }
         
         /* Seta de transformação entre cards */
         .transform-arrow {
@@ -787,7 +788,7 @@
                 <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-900 via-emerald-500 to-blue-900 md:hidden"></div>
 
                 <!-- Card 1: Fase de Fundição -->
-                <div class="group relative bg-white border-2 border-gray-300 rounded-xl p-6 hover:border-emerald-500 hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer">
+                <div class="group relative bg-white border-2 border-gray-300 rounded-xl p-6 hover:border-emerald-500 hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer fade-in-up delay-1">
                     <!-- Badge de número -->
                     <div class="absolute -top-3 -left-3 w-10 h-10 bg-blue-900 group-hover:bg-emerald-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg transition-all duration-500 z-10">
                         1
@@ -828,7 +829,7 @@
                 </div>
 
                 <!-- Card 2: Secagem e Raspagem -->
-                <div class="group relative bg-white border-2 border-gray-300 rounded-xl p-6 hover:border-emerald-500 hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer">
+                <div class="group relative bg-white border-2 border-gray-300 rounded-xl p-6 hover:border-emerald-500 hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer fade-in-up delay-2">
                     <!-- Badge de número -->
                     <div class="absolute -top-3 -left-3 w-10 h-10 bg-blue-900 group-hover:bg-emerald-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg transition-all duration-500 z-10">
                         2
@@ -869,7 +870,7 @@
                 </div>
 
                 <!-- Card 3: Setor de Pintura -->
-                <div class="group relative bg-white border-2 border-gray-300 rounded-xl p-6 hover:border-emerald-500 hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer">
+                <div class="group relative bg-white border-2 border-gray-300 rounded-xl p-6 hover:border-emerald-500 hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer fade-in-up delay-3">
                     <!-- Badge de número -->
                     <div class="absolute -top-3 -left-3 w-10 h-10 bg-blue-900 group-hover:bg-emerald-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg transition-all duration-500 z-10">
                         3
@@ -910,7 +911,7 @@
                 </div>
 
                 <!-- Card 4: Expedição e Venda -->
-                <div class="group relative bg-white border-2 border-gray-300 rounded-xl p-6 hover:border-emerald-500 hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer">
+                <div class="group relative bg-white border-2 border-gray-300 rounded-xl p-6 hover:border-emerald-500 hover:shadow-2xl transition-all duration-500 hover:scale-105 cursor-pointer fade-in-up delay-4">
                     <!-- Badge de número -->
                     <div class="absolute -top-3 -left-3 w-10 h-10 bg-blue-900 group-hover:bg-emerald-500 text-white rounded-full flex items-center justify-center font-bold text-lg shadow-lg transition-all duration-500 z-10">
                         4
@@ -959,7 +960,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 max-w-6xl mx-auto">
                 
                 <!-- Card 1 - OPÇÃO A (DESTAQUE) -->
-                <div class="relative border-4 border-emerald-500 rounded-2xl p-6 sm:p-8 bg-white card-highlight transform lg:scale-105 lg:hover:scale-110 transition-transform duration-300">
+                <div class="relative border-4 border-emerald-500 rounded-2xl p-6 sm:p-8 bg-white card-highlight transform lg:scale-105 lg:hover:scale-110 transition-transform duration-300 fade-in-up delay-1">
                     <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
                         <span class="bg-emerald-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
                             Recomendado
@@ -1024,7 +1025,7 @@
                 </div>
 
                 <!-- Card 2 - OPÇÃO B -->
-                <div class="border-2 border-gray-300 rounded-2xl p-6 sm:p-8 bg-white hover:shadow-lg transition-shadow duration-300">
+                <div class="border-2 border-gray-300 rounded-2xl p-6 sm:p-8 bg-white hover:shadow-lg transition-shadow duration-300 fade-in-up delay-2">
                     <div class="text-center mb-6">
                         <h3 class="text-2xl sm:text-3xl font-black text-blue-900 mb-2">
                             Opção B - Controle Operacional Interno
@@ -1334,7 +1335,7 @@
             </div>
 
             <!-- Hardware Incluído -->
-            <div class="max-w-6xl mx-auto mb-12">
+            <div class="max-w-6xl mx-auto mb-12 fade-in-up delay-1">
                 <div class="bg-white border-2 border-blue-200 rounded-2xl p-8 shadow-xl">
                     <div class="flex items-center gap-3 mb-6">
                         <i class="fas fa-mobile-alt text-4xl text-blue-900"></i>
@@ -1410,7 +1411,7 @@
             </div>
 
             <!-- Processo de Implantação -->
-            <div class="max-w-6xl mx-auto mb-12">
+            <div class="max-w-6xl mx-auto mb-12 fade-in-up delay-2">
                 <div class="bg-white border-2 border-purple-200 rounded-2xl p-8 shadow-xl">
                     <div class="flex items-center gap-3 mb-6">
                         <i class="fas fa-tasks text-4xl text-purple-700"></i>
@@ -1504,7 +1505,7 @@
             </div>
 
             <!-- Garantias Técnicas -->
-            <div class="max-w-6xl mx-auto mb-12">
+            <div class="max-w-6xl mx-auto mb-12 fade-in-up delay-3">
                 <div class="bg-white border-2 border-emerald-200 rounded-2xl p-8 shadow-xl">
                     <div class="flex items-center gap-3 mb-6">
                         <i class="fas fa-shield-alt text-4xl text-emerald-700"></i>
@@ -1572,7 +1573,7 @@
             </div>
 
             <!-- Atualizações e Melhorias -->
-            <div class="max-w-6xl mx-auto">
+            <div class="max-w-6xl mx-auto fade-in-up delay-4">
                 <div class="bg-gradient-to-br from-blue-600 to-purple-700 rounded-2xl p-8 shadow-xl text-white">
                     <div class="flex items-center gap-3 mb-6">
                         <i class="fas fa-rocket text-4xl"></i>
@@ -1644,15 +1645,17 @@
     <script>
         // Intersection Observer para animar cards quando aparecem na viewport
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
+            threshold: 0.05, // Menor threshold para mobile - elemento precisa estar apenas 5% visível
+            rootMargin: '0px 0px -50px 0px' // Margem reduzida para mobile
         };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    // Adiciona classe 'visible' para ativar a animação
+                    entry.target.classList.add('visible');
+                    // Opcional: para de observar após animar (economia de performance)
+                    // observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
