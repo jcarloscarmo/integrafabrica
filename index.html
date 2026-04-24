@@ -23,16 +23,7 @@
         }
         
         .card-highlight {
-            animation: pulse-glow 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulse-glow {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
-            }
-            50% {
-                box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
-            }
+            box-shadow: 0 16px 40px rgba(16, 185, 129, 0.12);
         }
         
         .sticky-header {
@@ -256,7 +247,7 @@
                     </div>
                 </div>
                 <div class="hidden md:block text-white text-sm">
-                    <span class="font-semibold">Proposta Comercial</span> | <span class="text-emerald-400">19/04/2026</span>
+                    <span class="font-semibold">Proposta Comercial</span> | <span class="text-emerald-400">Maio 2026 </span>
                 </div>
             </div>
             
@@ -996,33 +987,85 @@
     <!-- Seção de Preços e Modelos -->
     <section id="precos" class="py-12 sm:py-20 bg-white">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl sm:text-4xl font-black text-center text-blue-900 mb-10">
-                Escolha o Modelo Ideal para Sua Fábrica
+            <h2 class="text-3xl sm:text-4xl font-black text-center text-blue-900 mb-4">
+                Escolha o Plano Ideal para Sua Fábrica
             </h2>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-                
-                <!-- Card 1 - OPÇÃO A (DESTAQUE) -->
-                <div class="relative border-4 border-emerald-500 rounded-2xl p-6 bg-white card-highlight hover:shadow-2xl transition-all duration-300 fade-in-up delay-1">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                        <span class="bg-emerald-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
-                            Recomendado
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10 text-sm sm:text-base">
+                Os dois planos começam com implantação e desenvolvimento de R$ 2.000,00. Depois disso, você escolhe entre um controle essencial de estoque ou uma gestão mais completa da operação.
+            </p>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+
+                <div class="flex flex-col h-full border-2 border-blue-300 rounded-2xl p-6 bg-gradient-to-br from-blue-50 to-white hover:shadow-xl transition-all duration-300 fade-in-up delay-1">
+                    <div class="text-center mb-6">
+                        <span class="inline-flex items-center rounded-full bg-blue-100 text-blue-800 px-4 py-1 text-xs font-bold uppercase tracking-wide mb-4">
+                            Para organizar
                         </span>
-                    </div>
-                    
-                    <div class="text-center mb-6 mt-4">
                         <h3 class="text-2xl sm:text-3xl font-black text-blue-900 mb-2">
-                            Opção A - Gestão Integrada 360º
+                            Plano Básico
+                        </h3>
+                        <p class="text-blue-700 font-semibold text-sm sm:text-base">
+                            Organização simples do estoque da fábrica
+                        </p>
+                        <div class="bg-blue-50 border-2 border-blue-300 rounded-lg p-3 mt-3">
+                            <p class="text-sm text-blue-900 font-bold">
+                                Ideal para colocar entradas, saídas e saldos em ordem sem aumentar a complexidade da operação.
+                            </p>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-blue-500 text-xl mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-700">Registro rápido de entrada, transferência e saída.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-blue-500 text-xl mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-700">Consulta de saldo para acompanhar o que realmente está disponível.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-blue-500 text-xl mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-700">Relatórios básicos para acompanhar a movimentação do estoque.</span>
+                        </li>
+                        <li class="flex items-start gap-3 bg-blue-50 p-3 rounded-lg border-2 border-blue-200">
+                            <i class="fas fa-mobile-alt text-blue-600 text-xl mt-0.5 flex-shrink-0"></i>
+                            <span class="text-blue-900 font-bold">Necessário Aparelhos celular Android para operação.</span>
+                        </li>
+                        <li class="flex items-start gap-3 bg-gray-100 p-3 rounded-lg border-2 border-gray-300">
+                            <i class="fas fa-times-circle text-gray-600 text-xl mt-0.5 flex-shrink-0"></i>
+                            <span class="text-gray-700 font-semibold">Não inclui produção, custo real nem integração com marketplaces.</span>
+                        </li>
+                    </ul>
+
+                    <div class="border-t-2 border-gray-200 pt-6 mb-6 mt-auto">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-gray-600 font-semibold">Implantação e desenvolvimento:</span>
+                            <span class="text-2xl font-bold text-blue-900">R$ 2.000,00</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-600 font-semibold">Mensalidade:</span>
+                            <span class="text-3xl font-black text-blue-600">R$ 200,00</span>
+                        </div>
+                    </div>
+
+                    <button class="w-full border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white font-bold py-4 px-6 rounded-xl text-lg transition-all duration-300">
+                        Quero conhecer o Plano Básico
+                    </button>
+                </div>
+
+                <div class="flex flex-col h-full border-2 border-emerald-300 rounded-2xl p-6 bg-gradient-to-br from-white to-emerald-50 card-highlight hover:shadow-xl transition-all duration-300 fade-in-up delay-2">
+                    <div class="text-center mb-6">
+                        <span class="inline-flex items-center rounded-full bg-emerald-100 text-emerald-800 px-4 py-1 text-xs font-bold uppercase tracking-wide mb-4">
+                            Para integrar
+                        </span>
+                        <h3 class="text-2xl sm:text-3xl font-black text-blue-900 mb-2">
+                            Plano Completo
                         </h3>
                         <p class="text-emerald-600 font-semibold text-sm sm:text-base">
-                            Chão de Fábrica + E-commerce em Tempo Real
+                            Estoque, produção e vendas no mesmo fluxo
                         </p>
                         <div class="bg-emerald-50 border-2 border-emerald-300 rounded-lg p-3 mt-3">
-                            <p class="text-xs font-black text-emerald-900 uppercase mb-1">🔥 DIFERENCIAL EXCLUSIVO:</p>
                             <p class="text-sm text-emerald-800 font-bold">
-                                Conecta direto com seu Mercado Livre e Shopee
-                            </p>
-                            <p class="text-xs text-emerald-700 mt-1">
-                                Vendeu online? Baixa automática na fábrica. Produziu? Atualiza na hora nos anúncios.
+                                Indicado para quem quer centralizar a operação da fábrica e sincronizar os canais de venda.
                             </p>
                         </div>
                     </div>
@@ -1030,7 +1073,7 @@
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-start gap-3">
                             <i class="fas fa-check-circle text-emerald-500 text-xl mt-0.5 flex-shrink-0"></i>
-                            <span class="text-gray-700">Cálculo automático do custo real e Ficha Técnica de cada produto.</span>
+                            <span class="text-gray-700">Cálculo automático do custo real e ficha técnica por produto.</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fas fa-check-circle text-emerald-500 text-xl mt-0.5 flex-shrink-0"></i>
@@ -1038,259 +1081,91 @@
                         </li>
                         <li class="flex items-start gap-3 bg-emerald-50 p-3 rounded-lg border-2 border-emerald-200">
                             <i class="fas fa-sync-alt text-emerald-600 text-xl mt-0.5 flex-shrink-0 animate-spin" style="animation-duration: 3s;"></i>
-                            <span class="text-gray-900 font-bold">Sincronização BIDIRECIONAL com Mercado Livre e Shopee: Vendeu lá? Baixa aqui. Produziu aqui? Aparece lá.</span>
+                            <span class="text-gray-900 font-bold">Integração com Mercado Livre e Shopee para manter o estoque atualizado automaticamente.</span>
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fas fa-check-circle text-emerald-500 text-xl mt-0.5 flex-shrink-0"></i>
-                            <span class="text-gray-700">Sistema TRAVA a venda online se não tiver estoque físico na fábrica.</span>
+                            <span class="text-gray-700">Controle da produção, do estoque físico e da operação online.</span>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check-circle text-emerald-500 text-xl mt-0.5 flex-shrink-0"></i>
-                            <span class="text-gray-700">4 Aparelhos Android Inclusos no Aluguel.</span>
-                        </li>
-                    </ul>
-
-                    <div class="border-t-2 border-gray-200 pt-6 mb-6">
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-gray-600 font-semibold">Investimento Inicial (Implantação):</span>
-                            <span class="text-2xl font-bold text-blue-900">R$ 4.500,00</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-600 font-semibold">Mensalidade:</span>
-                            <span class="text-3xl font-black text-emerald-600">R$ 1.390,00</span>
-                        </div>
-                    </div>
-
-                    <button class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-6 rounded-xl text-lg transition-all duration-300 shadow-lg hover:shadow-xl">
-                        Selecionar Opção A
-                    </button>
-                </div>
-
-                <!-- Card 2 - OPÇÃO B -->
-                <div class="border-2 border-gray-300 rounded-2xl p-6 bg-white hover:shadow-lg transition-shadow duration-300 fade-in-up delay-2">
-                    <div class="text-center mb-6">
-                        <h3 class="text-2xl sm:text-3xl font-black text-blue-900 mb-2">
-                            Opção B - Controle Operacional Interno
-                        </h3>
-                        <p class="text-gray-600 font-semibold text-sm sm:text-base">
-                            Foco Estrito no Chão de Fábrica
-                        </p>
-                        <div class="bg-yellow-50 border-2 border-yellow-400 rounded-lg p-3 mt-3">
-                            <p class="text-xs font-black text-yellow-900 uppercase mb-1">⚠️ LIMITAÇÃO IMPORTANTE:</p>
-                            <p class="text-sm text-yellow-800 font-bold">
-                                NÃO conecta com Mercado Livre ou Shopee
-                            </p>
-                            <p class="text-xs text-yellow-700 mt-1">
-                                Você precisa dar baixa manual nas vendas online
-                            </p>
-                        </div>
-                    </div>
-
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check-circle text-gray-500 text-xl mt-0.5 flex-shrink-0"></i>
-                            <span class="text-gray-700">Cálculo automático do custo real e Ficha Técnica.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check-circle text-gray-500 text-xl mt-0.5 flex-shrink-0"></i>
-                            <span class="text-gray-700">Apontamento de produtividade e <span class="tooltip">refugo<span class="tooltiptext">Peças quebradas ou com defeito que não podem ser vendidas</span></span>.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check-circle text-gray-500 text-xl mt-0.5 flex-shrink-0"></i>
-                            <span class="text-gray-700">App <span class="tooltip">Offline-First<span class="tooltiptext">Funciona sem internet e sincroniza depois quando conectar</span></span> para áreas sem internet.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check-circle text-gray-500 text-xl mt-0.5 flex-shrink-0"></i>
-                            <span class="text-gray-700">4 Aparelhos Android Inclusos no Aluguel.</span>
-                        </li>
-                        <li class="flex items-start gap-3 bg-red-50 p-3 rounded-lg border-2 border-red-300">
-                            <i class="fas fa-exclamation-triangle text-red-600 text-xl mt-0.5 flex-shrink-0"></i>
-                            <span class="text-red-700 font-bold">Vendeu no Mercado Livre ou Shopee? VOCÊ precisa entrar no sistema e dar baixa manual no estoque. Risco alto de esquecer e vender peça que não tem.</span>
+                        <li class="flex items-start gap-3 bg-emerald-50 p-3 rounded-lg border-2 border-emerald-200">
+                            <i class="fas fa-mobile-alt text-emerald-600 text-xl mt-0.5 flex-shrink-0"></i>
+                            <span class="text-emerald-900 font-bold">Necessério aparelhos Android para operação da aplicação.</span>
                         </li>
                     </ul>
 
-                    <div class="border-t-2 border-gray-200 pt-6 mb-6">
+                    <div class="border-t-2 border-gray-200 pt-6 mb-6 mt-auto">
                         <div class="flex justify-between items-center mb-3">
-                            <span class="text-gray-600 font-semibold">Investimento Inicial (Implantação):</span>
-                            <span class="text-2xl font-bold text-blue-900">R$ 3.000,00</span>
+                            <span class="text-gray-600 font-semibold">Implantação e desenvolvimento:</span>
+                            <span class="text-2xl font-bold text-blue-900">R$ 2.000,00</span>
                         </div>
                         <div class="flex justify-between items-center">
                             <span class="text-gray-600 font-semibold">Mensalidade:</span>
-                            <span class="text-3xl font-black text-gray-700">R$ 950,00</span>
+                            <span class="text-3xl font-black text-emerald-600">R$ 600,00</span>
                         </div>
                     </div>
 
-                    <button class="w-full border-2 border-blue-900 text-blue-900 hover:bg-blue-900 hover:text-white font-bold py-4 px-6 rounded-xl text-lg transition-all duration-300">
-                        Selecionar Opção B
-                    </button>
-                </div>
-
-                <!-- Card 3 - OPÇÃO C (MAIS ECONÔMICA) -->
-                <div class="relative border-2 border-blue-300 rounded-2xl p-6 bg-gradient-to-br from-blue-50 to-white hover:shadow-lg transition-shadow duration-300 fade-in-up delay-3">
-                    <div class="absolute top-4 right-4">
-                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow">
-                            Mais Econômico
-                        </span>
-                    </div>
-                    
-                    <div class="text-center mb-6">
-                        <h3 class="text-2xl sm:text-3xl font-black text-blue-900 mb-2">
-                            Opção C - Controle Básico de Estoque
-                        </h3>
-                        <p class="text-gray-600 font-semibold text-sm sm:text-base">
-                            Gestão Simples de Entrada e Saída
-                        </p>
-                        <div class="bg-blue-50 border-2 border-blue-300 rounded-lg p-3 mt-3">
-                            <p class="text-xs font-black text-blue-900 uppercase mb-1">💡 PARA QUEM QUER SIMPLICIDADE:</p>
-                            <p class="text-sm text-blue-800 font-bold">
-                                Apenas controle de estoque (cru e pintado)
-                            </p>
-                            <p class="text-xs text-blue-700 mt-1">
-                                Use seus próprios celulares - Sem hardware fornecido
-                            </p>
-                        </div>
-                    </div>
-
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check-circle text-blue-500 text-xl mt-0.5 flex-shrink-0"></i>
-                            <span class="text-gray-700">Entrada de estoque (produto cru).</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check-circle text-blue-500 text-xl mt-0.5 flex-shrink-0"></i>
-                            <span class="text-gray-700">Transferência para estoque pintado.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check-circle text-blue-500 text-xl mt-0.5 flex-shrink-0"></i>
-                            <span class="text-gray-700">Saída de estoque (vendas).</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check-circle text-blue-500 text-xl mt-0.5 flex-shrink-0"></i>
-                            <span class="text-gray-700">Consulta de saldo em tempo real via app web.</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check-circle text-blue-500 text-xl mt-0.5 flex-shrink-0"></i>
-                            <span class="text-gray-700">Relatórios básicos de movimentação.</span>
-                        </li>
-                        <li class="flex items-start gap-3 bg-blue-50 p-3 rounded-lg border-2 border-blue-200">
-                            <i class="fas fa-mobile-alt text-blue-600 text-xl mt-0.5 flex-shrink-0"></i>
-                            <span class="text-blue-900 font-bold">Você usa seus próprios celulares (não fornecemos hardware).</span>
-                        </li>
-                        <li class="flex items-start gap-3 bg-gray-100 p-3 rounded-lg border-2 border-gray-300">
-                            <i class="fas fa-times-circle text-gray-600 text-xl mt-0.5 flex-shrink-0"></i>
-                            <span class="text-gray-700 font-semibold">NÃO controla produção (fundição, raspagem, custo, refugo).</span>
-                        </li>
-                        <li class="flex items-start gap-3 bg-gray-100 p-3 rounded-lg border-2 border-gray-300">
-                            <i class="fas fa-times-circle text-gray-600 text-xl mt-0.5 flex-shrink-0"></i>
-                            <span class="text-gray-700 font-semibold">NÃO integra com Mercado Livre ou Shopee.</span>
-                        </li>
-                    </ul>
-
-                    <div class="border-t-2 border-gray-200 pt-6 mb-6">
-                        <div class="flex justify-between items-center mb-3">
-                            <span class="text-gray-600 font-semibold">Investimento Inicial (Implantação):</span>
-                            <span class="text-2xl font-bold text-blue-900">R$ 1.500,00</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span class="text-gray-600 font-semibold">Mensalidade:</span>
-                            <span class="text-3xl font-black text-blue-600">R$ 490,00</span>
-                        </div>
-                        <p class="text-xs text-gray-500 mt-3 text-center">
-                            * Treinamento online básico (1 hora) incluso
-                        </p>
-                    </div>
-
-                    <button class="w-full border-2 border-blue-500 text-blue-600 hover:bg-blue-500 hover:text-white font-bold py-4 px-6 rounded-xl text-lg transition-all duration-300">
-                        Selecionar Opção C
+                    <button class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-4 px-6 rounded-xl text-lg transition-all duration-300 shadow-md hover:shadow-lg">
+                        Quero conhecer o Plano Completo
                     </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tabela de Comparação de Riscos -->
+    <!-- Tabela de Comparação -->
     <section id="comparacao" class="py-12 sm:py-20 bg-gray-100">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl sm:text-4xl font-black text-center text-blue-900 mb-10">
-                Tabela de Comparação Completa
+            <h2 class="text-3xl sm:text-4xl font-black text-center text-blue-900 mb-4">
+                Diferenças Principais
             </h2>
+            <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10 text-sm sm:text-base">
+                Resumo direto para facilitar a escolha do plano mais adequado para sua rotina.
+            </p>
             
             <div class="overflow-x-auto shadow-xl rounded-xl">
-                <table class="w-full bg-white border-collapse min-w-[900px]">
+                <table class="w-full bg-white border-collapse min-w-[720px]">
                     <thead>
                         <tr class="bg-blue-900 text-white">
                             <th class="py-4 px-3 sm:px-4 text-left font-bold text-xs sm:text-sm">Característica</th>
-                            <th class="py-4 px-3 sm:px-4 text-left font-bold text-xs sm:text-sm">Opção A<br><span class="font-normal text-xs">(Integrado)</span></th>
-                            <th class="py-4 px-3 sm:px-4 text-left font-bold text-xs sm:text-sm">Opção B<br><span class="font-normal text-xs">(Interno)</span></th>
-                            <th class="py-4 px-3 sm:px-4 text-left font-bold text-xs sm:text-sm">Opção C<br><span class="font-normal text-xs">(Básico)</span></th>
+                            <th class="py-4 px-3 sm:px-4 text-left font-bold text-xs sm:text-sm">Plano Básico</th>
+                            <th class="py-4 px-3 sm:px-4 text-left font-bold text-xs sm:text-sm">Plano Completo</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="border-b border-gray-200 hover:bg-gray-50">
-                            <td class="py-3 px-3 sm:px-4 font-semibold text-gray-700 text-xs sm:text-sm">Cálculo do Custo Real / Lucro</td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">✅ Automático</td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">✅ Automático</td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">❌ Não</td>
+                            <td class="py-3 px-3 sm:px-4 font-semibold text-gray-700 text-xs sm:text-sm">Para quem é</td>
+                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">Para organizar o estoque com simplicidade</td>
+                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">Para integrar estoque, produção e vendas</td>
                         </tr>
                         <tr class="bg-gray-50 border-b border-gray-200 hover:bg-gray-100">
-                            <td class="py-3 px-3 sm:px-4 font-semibold text-gray-700 text-xs sm:text-sm">Controle de <span class="tooltip">Refugo<span class="tooltiptext">Peças quebradas</span></span></td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">✅ Sim</td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">✅ Sim</td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">❌ Não</td>
-                        </tr>
-                        <tr class="border-b border-gray-200 hover:bg-gray-50">
-                            <td class="py-3 px-3 sm:px-4 font-semibold text-gray-700 text-xs sm:text-sm">Apontamento de Produção</td>
+                            <td class="py-3 px-3 sm:px-4 font-semibold text-gray-700 text-xs sm:text-sm">Controle de estoque</td>
+                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">✅ Essencial</td>
                             <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">✅ Completo</td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">✅ Completo</td>
+                        </tr>
+                        <tr class="border-b border-gray-200 hover:bg-gray-50">
+                            <td class="py-3 px-3 sm:px-4 font-semibold text-gray-700 text-xs sm:text-sm">Produção e custo real</td>
                             <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">❌ Não</td>
+                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">✅ Sim</td>
                         </tr>
                         <tr class="bg-gray-50 border-b border-gray-200 hover:bg-gray-100">
-                            <td class="py-3 px-3 sm:px-4 font-semibold text-gray-700 text-xs sm:text-sm">Controle de Estoque</td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">✅ Avançado</td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">✅ Avançado</td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">✅ Básico</td>
+                            <td class="py-3 px-3 sm:px-4 font-semibold text-gray-700 text-xs sm:text-sm">Integração com Mercado Livre e Shopee</td>
+                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">❌ Não</td>
+                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">✅ Automática</td>
                         </tr>
                         <tr class="border-b border-gray-200 hover:bg-gray-50">
-                            <td class="py-3 px-3 sm:px-4 font-semibold text-gray-700 text-xs sm:text-sm">Sincronização ML/Shopee</td>
-                            <td class="py-3 px-3 sm:px-4 text-xs sm:text-sm">
-                                <span class="inline-block bg-emerald-100 text-emerald-800 font-bold px-2 py-1 rounded text-xs">
-                                    <i class="fas fa-sync-alt mr-1"></i>AUTOMÁTICA
-                                </span>
-                            </td>
-                            <td class="py-3 px-3 sm:px-4 text-xs sm:text-sm">
-                                <span class="inline-block bg-gray-300 text-gray-800 font-bold px-2 py-1 rounded text-xs">
-                                    <i class="fas fa-ban mr-1"></i>NÃO
-                                </span>
-                            </td>
-                            <td class="py-3 px-3 sm:px-4 text-xs sm:text-sm">
-                                <span class="inline-block bg-gray-300 text-gray-800 font-bold px-2 py-1 rounded text-xs">
-                                    <i class="fas fa-ban mr-1"></i>NÃO
-                                </span>
-                            </td>
+                            <td class="py-3 px-3 sm:px-4 font-semibold text-gray-700 text-xs sm:text-sm">Implantação inicial</td>
+                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">R$ 2.000,00</td>
+                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">R$ 2.000,00</td>
                         </tr>
                         <tr class="bg-gray-50 border-b border-gray-200 hover:bg-gray-100">
-                            <td class="py-3 px-3 sm:px-4 font-semibold text-gray-700 text-xs sm:text-sm">Aparelhos Android Inclusos</td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">✅ 4 aparelhos</td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">✅ 4 aparelhos</td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">❌ Cliente fornece</td>
-                        </tr>
-                        <tr class="border-b border-gray-200 hover:bg-gray-50">
-                            <td class="py-3 px-3 sm:px-4 font-semibold text-gray-700 text-xs sm:text-sm">Necessidade de Internet</td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">Alta</td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">Baixa (offline)</td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">Média</td>
-                        </tr>
-                        <tr class="bg-gray-50 border-b border-gray-200 hover:bg-gray-100">
-                            <td class="py-3 px-3 sm:px-4 font-semibold text-gray-700 text-xs sm:text-sm">Tempo de Implantação</td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">45-60 dias</td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">30 dias</td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">7-10 dias</td>
+                            <td class="py-3 px-3 sm:px-4 font-semibold text-gray-700 text-xs sm:text-sm">Mensalidade</td>
+                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm"><strong>R$ 200,00</strong></td>
+                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm"><strong>R$ 600,00</strong></td>
                         </tr>
                         <tr class="hover:bg-gray-50">
-                            <td class="py-3 px-3 sm:px-4 font-semibold text-gray-700 text-xs sm:text-sm">Investimento Total (1º ano)</td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm"><strong>R$ 21.180</strong></td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm"><strong>R$ 14.400</strong></td>
-                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm"><strong>R$ 7.380</strong></td>
+                            <td class="py-3 px-3 sm:px-4 font-semibold text-gray-700 text-xs sm:text-sm">Aparelhos para operação</td>
+                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">Cliente fornece</td>
+                            <td class="py-3 px-3 sm:px-4 text-gray-700 text-xs sm:text-sm">Cliente fornece</td>
                         </tr>
                     </tbody>
                 </table>
@@ -1298,7 +1173,7 @@
         </div>
     </section>
 
-    <!-- Seção Explicativa: Integração com E-commerce -->
+    <!-- Seção Explicativa: Diferença entre os planos -->
     <section id="integracao" class="py-12 sm:py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-purple-900 text-white relative overflow-hidden">
         <!-- Padrão de fundo decorativo -->
         <div class="absolute inset-0 opacity-10">
@@ -1308,146 +1183,67 @@
         
         <div class="container mx-auto px-4 relative z-10">
             <div class="text-center mb-12">
-                <div class="inline-block bg-emerald-500 text-white px-6 py-2 rounded-full font-bold text-sm mb-4 shadow-lg">
-                    💎 O DIFERENCIAL QUE JUSTIFICA O INVESTIMENTO
-                </div>
                 <h2 class="text-3xl sm:text-4xl font-black mb-4">
-                    Como Funciona a Integração com Mercado Livre e Shopee?
+                    Qual a Diferença Prática Entre os Planos?
                 </h2>
                 <p class="text-blue-100 text-base sm:text-lg max-w-3xl mx-auto">
-                    Entenda em detalhes por que a <strong>Opção A</strong> elimina completamente o risco de furos de estoque
+                    Se a prioridade hoje for organizar o estoque, o Básico resolve. Se a necessidade for acompanhar a fábrica com mais profundidade e integrar vendas, o Completo entrega essa camada adicional.
                 </p>
             </div>
 
-            <!-- Cenário Comparativo -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
-                <!-- SEM Integração (Opção B) -->
-                <div class="bg-red-900/40 backdrop-blur-sm border-3 border-red-400 rounded-2xl p-6 shadow-2xl">
+                <div class="bg-white/10 backdrop-blur-sm border-2 border-blue-300 rounded-2xl p-6 shadow-2xl">
                     <div class="text-center mb-6">
-                        <i class="fas fa-exclamation-triangle text-5xl text-red-300 mb-3"></i>
-                        <h3 class="text-2xl font-black text-red-200">SEM Integração (Opção B)</h3>
-                        <p class="text-red-300 text-sm mt-2">R$ 950/mês - Controle apenas interno</p>
+                        <i class="fas fa-boxes text-5xl text-blue-200 mb-3"></i>
+                        <h3 class="text-2xl font-black text-blue-100">Plano Básico</h3>
+                        <p class="text-blue-200 text-sm mt-2">R$ 200/mês</p>
                     </div>
 
                     <div class="space-y-4">
                         <div class="bg-white/10 rounded-lg p-4">
-                            <p class="font-bold text-yellow-300 text-sm mb-2">09:00 - Você produz 10 peças</p>
-                            <p class="text-sm text-white">Sistema registra: <strong>10 em estoque</strong></p>
+                            <p class="font-bold text-blue-100 text-sm mb-2">O que ele cobre</p>
+                            <p class="text-sm text-white">Movimentação e consulta do estoque para dar visibilidade ao que entra, sai e permanece disponível.</p>
                         </div>
-                        
                         <div class="bg-white/10 rounded-lg p-4">
-                            <p class="font-bold text-yellow-300 text-sm mb-2">10:30 - Cliente compra 1 peça no Mercado Livre</p>
-                            <p class="text-sm text-red-300">⚠️ Mercado Livre NÃO conversa com o sistema</p>
-                            <p class="text-sm text-white">Sistema ainda mostra: <strong>10 em estoque</strong></p>
+                            <p class="font-bold text-blue-100 text-sm mb-2">Indicado para</p>
+                            <p class="text-sm text-white">Empresas que querem começar pelo controle do estoque e evoluir a operação no tempo certo.</p>
                         </div>
-
                         <div class="bg-white/10 rounded-lg p-4">
-                            <p class="font-bold text-yellow-300 text-sm mb-2">11:00 - Cliente compra 1 na Shopee</p>
-                            <p class="text-sm text-red-300">⚠️ Shopee NÃO conversa com o sistema</p>
-                            <p class="text-sm text-white">Sistema ainda mostra: <strong>10 em estoque</strong></p>
+                            <p class="font-bold text-blue-100 text-sm mb-2">Rotina de uso</p>
+                            <p class="text-sm text-white">A equipe registra as movimentações no dia a dia usando os aparelhos Android da própria empresa.</p>
                         </div>
-
-                        <div class="bg-red-800/60 border-2 border-red-500 rounded-lg p-4">
-                            <p class="font-bold text-red-200 text-sm mb-2">14:00 - Você LEMBRA de dar baixa</p>
-                            <p class="text-sm text-white">Entra no sistema e baixa manualmente as 2 vendas</p>
-                            <p class="text-sm text-white mt-2">Sistema agora: <strong>8 em estoque</strong></p>
-                        </div>
-
-                        <div class="bg-red-600 border-2 border-red-400 rounded-lg p-4">
-                            <p class="font-bold text-white text-base mb-2">💣 O PROBLEMA:</p>
-                            <p class="text-sm text-red-100">
-                                Das 10h30 até às 14h (3h30min), seus anúncios estavam MENTINDO. 
-                                Se alguém comprou nesse período, você vendeu algo que não tinha.
-                            </p>
+                        <div class="bg-blue-800/40 border-2 border-blue-400 rounded-lg p-4">
+                            <p class="font-bold text-white text-base mb-2">Não inclui</p>
+                            <p class="text-sm text-blue-100">Cálculo de custo real, apontamento de produção, refugo por funcionário e integração com Mercado Livre ou Shopee.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- COM Integração (Opção A) -->
                 <div class="bg-emerald-900/40 backdrop-blur-sm border-3 border-emerald-400 rounded-2xl p-6 shadow-2xl">
                     <div class="text-center mb-6">
                         <i class="fas fa-shield-alt text-5xl text-emerald-300 mb-3"></i>
-                        <h3 class="text-2xl font-black text-emerald-200">COM Integração (Opção A)</h3>
-                        <p class="text-emerald-300 text-sm mt-2">R$ 1.390/mês - Sincronização em tempo real</p>
+                        <h3 class="text-2xl font-black text-emerald-200">Plano Completo</h3>
+                        <p class="text-emerald-300 text-sm mt-2">R$ 600/mês</p>
                     </div>
 
                     <div class="space-y-4">
                         <div class="bg-white/10 rounded-lg p-4">
-                            <p class="font-bold text-yellow-300 text-sm mb-2">09:00 - Você produz 10 peças</p>
-                            <p class="text-sm text-white">Sistema registra: <strong>10 em estoque</strong></p>
-                            <p class="text-sm text-emerald-300 mt-1">
-                                ✅ Mercado Livre atualiza para 10<br>
-                                ✅ Shopee atualiza para 10
-                            </p>
+                            <p class="font-bold text-yellow-300 text-sm mb-2">O que ele cobre</p>
+                            <p class="text-sm text-white">Estoque, produção, custo real, ficha técnica, produtividade e controle de refugo em um único fluxo.</p>
                         </div>
-                        
                         <div class="bg-white/10 rounded-lg p-4">
-                            <p class="font-bold text-yellow-300 text-sm mb-2">10:30:45 - Cliente compra 1 no ML</p>
-                            <p class="text-sm text-emerald-300">
-                                ✅ 10:30:46 (1 segundo): Sistema baixa para 9<br>
-                                ✅ 10:30:46: Shopee atualiza para 9<br>
-                                ✅ 10:30:46: Outros anúncios do ML atualizam para 9
-                            </p>
+                            <p class="font-bold text-yellow-300 text-sm mb-2">Indicado para</p>
+                            <p class="text-sm text-white">Operações que precisam unir o chão de fábrica com os canais de venda e reduzir trabalho manual.</p>
                         </div>
-
                         <div class="bg-white/10 rounded-lg p-4">
-                            <p class="font-bold text-yellow-300 text-sm mb-2">11:15:20 - Cliente compra 1 na Shopee</p>
-                            <p class="text-sm text-emerald-300">
-                                ✅ 11:15:21 (1 segundo): Sistema baixa para 8<br>
-                                ✅ 11:15:21: Mercado Livre atualiza para 8<br>
-                                ✅ 11:15:21: Shopee atualiza para 8
-                            </p>
+                            <p class="font-bold text-yellow-300 text-sm mb-2">Rotina de uso</p>
+                            <p class="text-sm text-white">A produção é apontada na fábrica e as vendas online passam a refletir no estoque de forma automática.</p>
                         </div>
-
-                        <div class="bg-emerald-800/60 border-2 border-emerald-500 rounded-lg p-4">
-                            <p class="font-bold text-emerald-200 text-sm mb-2">14:00 - Você NÃO precisa fazer NADA</p>
-                            <p class="text-sm text-white">Sistema: <strong>8 em estoque</strong> (correto)</p>
-                            <p class="text-sm text-emerald-300 mt-2">
-                                Seus anúncios SEMPRE mostram a quantidade real
-                            </p>
-                        </div>
-
                         <div class="bg-emerald-600 border-2 border-emerald-400 rounded-lg p-4">
-                            <p class="font-bold text-white text-base mb-2">🔒 A PROTEÇÃO:</p>
-                            <p class="text-sm text-emerald-100">
-                                IMPOSSÍVEL vender sem estoque. O sistema sincroniza em 1 segundo.
-                                Você NUNCA mais vai receber reclamação de "comprei mas não tem".
-                            </p>
+                            <p class="font-bold text-white text-base mb-2">Diferencial</p>
+                            <p class="text-sm text-emerald-100">É a escolha para quem quer consolidar estoque, produção e vendas em uma visão mais completa da operação.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- ROI da Integração -->
-            <div class="max-w-4xl mx-auto bg-white/10 backdrop-blur-sm border-2 border-white/30 rounded-2xl p-8 text-center">
-                <h3 class="text-2xl font-black mb-4">
-                    <i class="fas fa-calculator text-emerald-400 mr-2"></i>
-                    Vale a pena pagar R$ 440 a mais por mês?
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                    <div class="bg-red-500/20 border border-red-400 rounded-lg p-4">
-                        <p class="text-3xl font-black text-red-300 mb-1">1x</p>
-                        <p class="text-sm text-white">Furo de estoque por mês</p>
-                        <p class="text-xs text-red-200 mt-2">Perda: ~R$ 150 (peça + frete + reputação)</p>
-                    </div>
-                    <div class="bg-red-600/20 border border-red-500 rounded-lg p-4">
-                        <p class="text-3xl font-black text-red-300 mb-1">3h</p>
-                        <p class="text-sm text-white">Por semana dando baixa manual</p>
-                        <p class="text-xs text-red-200 mt-2">Custo: ~R$ 200/mês do seu tempo</p>
-                    </div>
-                    <div class="bg-red-700/20 border border-red-600 rounded-lg p-4">
-                        <p class="text-3xl font-black text-red-300 mb-1">10%</p>
-                        <p class="text-sm text-white">Risco de nota ruim no ML</p>
-                        <p class="text-xs text-red-200 mt-2">Impacto: Perda de vendas futuras</p>
-                    </div>
-                </div>
-                <div class="bg-emerald-600 border-2 border-emerald-400 rounded-xl p-6">
-                    <p class="text-xl font-black text-white mb-2">
-                        1 único furo de estoque JÁ paga a diferença de 3 meses!
-                    </p>
-                    <p class="text-sm text-emerald-100">
-                        E você ainda economiza horas de trabalho manual toda semana + protege sua reputação online
-                    </p>
                 </div>
             </div>
         </div>
@@ -1469,66 +1265,64 @@
                 </p>
             </div>
 
-            <!-- Hardware Incluído -->
+            <!-- Estrutura necessária -->
             <div class="max-w-6xl mx-auto mb-12 fade-in-up delay-1">
                 <div class="bg-white border-2 border-blue-200 rounded-2xl p-8 shadow-xl">
                     <div class="flex items-center gap-3 mb-6">
                         <i class="fas fa-mobile-alt text-4xl text-blue-900"></i>
-                        <h3 class="text-2xl font-black text-blue-900">Hardware Incluído no Aluguel</h3>
+                        <h3 class="text-2xl font-black text-blue-900">Estrutura Necessária na Fábrica</h3>
                         <span class="ml-auto bg-blue-100 text-blue-800 px-4 py-1 rounded-full text-xs font-bold">
-                            Apenas Opções A e B
+                            Ambos os planos
                         </span>
                     </div>
                     
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <!-- Especificações dos Celulares -->
                         <div class="bg-blue-50 rounded-xl p-6">
                             <h4 class="font-bold text-lg text-blue-900 mb-4 flex items-center gap-2">
                                 <i class="fas fa-check-circle text-emerald-600"></i>
-                                4 Aparelhos Android Inclusos
+                                O Que a Empresa Precisa Ter
                             </h4>
                             <ul class="space-y-3 text-gray-700">
                                 <li class="flex items-start gap-2">
                                     <i class="fas fa-arrow-right text-blue-600 mt-1"></i>
-                                    <span>Aparelhos Android com leitor de códigos QR/Barras</span>
+                                    <span>Aparelhos Android próprios para a equipe operar o sistema</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <i class="fas fa-arrow-right text-blue-600 mt-1"></i>
-                                    <span>Resistentes ao ambiente de fábrica</span>
+                                    <span>Internet na fábrica para sincronização e suporte</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <i class="fas fa-arrow-right text-blue-600 mt-1"></i>
-                                    <span>Bateria com autonomia para turno completo</span>
+                                    <span>Carregadores e rotina básica de uso dos aparelhos</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <i class="fas fa-arrow-right text-blue-600 mt-1"></i>
-                                    <span>Aplicativo pré-instalado e configurado</span>
+                                    <span>Uma pessoa de referência para acompanhar a implantação</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <i class="fas fa-arrow-right text-blue-600 mt-1"></i>
-                                    <span>Proteção contra impactos incluída</span>
+                                    <span>Organização dos pontos de estoque e operação na fábrica</span>
                                 </li>
                             </ul>
                         </div>
 
-                        <!-- O que está incluído -->
                         <div class="bg-emerald-50 rounded-xl p-6">
                             <h4 class="font-bold text-lg text-emerald-900 mb-4 flex items-center gap-2">
                                 <i class="fas fa-gift text-emerald-600"></i>
-                                O Que Está Incluso (Zero Custo Extra)
+                                O Que Está Incluso no Projeto
                             </h4>
                             <ul class="space-y-3 text-gray-700">
                                 <li class="flex items-start gap-2">
                                     <i class="fas fa-check text-emerald-600 mt-1"></i>
-                                    <span>Chips de dados 4G com franquia mensal</span>
+                                    <span>Configuração do sistema conforme o plano contratado</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <i class="fas fa-check text-emerald-600 mt-1"></i>
-                                    <span>Carregadores e cabos</span>
+                                    <span>Treinamento da equipe responsável</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <i class="fas fa-check text-emerald-600 mt-1"></i>
-                                    <span>Aplicativo instalado e configurado</span>
+                                    <span>Aplicativo configurado nos aparelhos da empresa</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <i class="fas fa-check text-emerald-600 mt-1"></i>
@@ -1540,7 +1334,7 @@
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <i class="fas fa-check text-emerald-600 mt-1"></i>
-                                    <span><strong class="text-emerald-700">Você NÃO compra os aparelhos!</strong> No fim do contrato, devolve</span>
+                                    <span>Implantação e desenvolvimento com investimento inicial de R$ 2.000,00</span>
                                 </li>
                             </ul>
                         </div>
@@ -1548,21 +1342,18 @@
                 </div>
             </div>
 
-            <!-- Opção C - Como Funciona -->
+            <!-- Plano Básico - Como Funciona -->
             <div class="max-w-6xl mx-auto mb-12 fade-in-up delay-2">
                 <div class="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-300 rounded-2xl p-8 shadow-xl">
                     <div class="flex items-center gap-3 mb-6">
                         <i class="fas fa-boxes text-4xl text-blue-600"></i>
-                        <h3 class="text-2xl font-black text-blue-900">Opção C - Controle Básico de Estoque</h3>
-                        <span class="ml-auto bg-blue-500 text-white px-4 py-1 rounded-full text-xs font-bold">
-                            Mais Econômico
-                        </span>
+                        <h3 class="text-2xl font-black text-blue-900">Plano Básico - Como Funciona</h3>
                     </div>
 
                     <div class="bg-blue-100 border-l-4 border-blue-500 p-4 mb-6 rounded-r-lg">
                         <p class="text-blue-900 font-semibold text-sm">
                             <i class="fas fa-info-circle mr-2"></i>
-                            Para quem quer apenas controlar quanto tem em estoque, sem rastrear todo o processo de produção.
+                            Para quem quer controlar o estoque da fábrica de forma simples, objetiva e sem incluir a gestão completa da produção.
                         </p>
                     </div>
                     
@@ -1593,7 +1384,6 @@
                             </ul>
                         </div>
 
-                        <!-- O que você precisa fornecer -->
                         <div>
                             <h4 class="font-bold text-lg text-orange-900 mb-4 flex items-center gap-2">
                                 <i class="fas fa-user-cog text-orange-600"></i>
@@ -1602,11 +1392,11 @@
                             <ul class="space-y-3 text-gray-700 text-sm">
                                 <li class="flex items-start gap-2">
                                     <i class="fas fa-mobile-alt text-orange-600 mt-1"></i>
-                                    <span><strong>Seus próprios celulares/tablets Android</strong> (não enviamos hardware)</span>
+                                    <span><strong>Aparelhos Android próprios da empresa</strong> para operar o sistema</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <i class="fas fa-wifi text-orange-600 mt-1"></i>
-                                    <span><strong>Internet na fábrica</strong> (WiFi ou dados móveis)</span>
+                                    <span><strong>Internet na fábrica</strong> para sincronização do sistema</span>
                                 </li>
                                 <li class="flex items-start gap-2">
                                     <i class="fas fa-user-tie text-orange-600 mt-1"></i>
@@ -1620,7 +1410,6 @@
                         </div>
                     </div>
 
-                    <!-- Implantação Rápida -->
                     <div class="bg-emerald-50 border-2 border-emerald-300 rounded-lg p-6">
                         <h4 class="font-bold text-lg text-emerald-900 mb-4 flex items-center gap-2">
                             <i class="fas fa-rocket text-emerald-600"></i>
@@ -1651,11 +1440,10 @@
                         </div>
                     </div>
 
-                    <!-- Limitações -->
                     <div class="bg-gray-50 border-2 border-gray-300 rounded-lg p-6 mt-6">
                         <h4 class="font-bold text-lg text-gray-900 mb-4 flex items-center gap-2">
                             <i class="fas fa-exclamation-circle text-gray-600"></i>
-                            O Que NÃO Está Incluso na Opção C
+                            O Que NÃO Está Incluso no Plano Básico
                         </h4>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
                             <div class="flex items-start gap-2">
@@ -1674,14 +1462,7 @@
                                 <i class="fas fa-times text-red-600 mt-0.5"></i>
                                 <span class="text-gray-700">Integração com Mercado Livre ou Shopee</span>
                             </div>
-                            <div class="flex items-start gap-2">
-                                <i class="fas fa-times text-red-600 mt-0.5"></i>
-                                <span class="text-gray-700">Aparelhos Android fornecidos pela BetaUp</span>
-                            </div>
-                            <div class="flex items-start gap-2">
-                                <i class="fas fa-times text-red-600 mt-0.5"></i>
-                                <span class="text-gray-700">Chips de dados 4G inclusos</span>
-                            </div>
+                      
                         </div>
                     </div>
                 </div>
@@ -1694,7 +1475,7 @@
                         <i class="fas fa-tasks text-4xl text-purple-700"></i>
                         <h3 class="text-2xl font-black text-purple-900">Como Funciona a Instalação na Sua Fábrica?</h3>
                         <span class="ml-auto bg-purple-100 text-purple-800 px-4 py-1 rounded-full text-xs font-bold">
-                            Opções A e B (30-60 dias)
+                            Planos Básico e Completo
                         </span>
                     </div>
                     
@@ -1725,11 +1506,11 @@
                             </div>
                             <div class="bg-purple-50 rounded-lg p-5">
                                 <h4 class="font-bold text-purple-900 mb-2">
-                                    🚚 Dias 8-10: Envio e Instalação de Hardware
+                                    ⚙️ Dias 8-10: Configuração e Preparação da Operação
                                 </h4>
                                 <ul class="text-gray-700 text-sm space-y-1">
-                                    <li>✓ Envio dos 4 aparelhos Android via Sedex/transportadora</li>
-                                    <li>✓ Aplicativo já instalado e configurado (você só liga o aparelho)</li>
+                                    <li>✓ Configuração do sistema de acordo com o plano contratado</li>
+                                    <li>✓ Apoio para instalar e validar o aplicativo nos aparelhos da empresa</li>
                                     <li>✓ Instalação dos QR Codes nas bancadas e estoques</li>
                                     <li>✓ Teste de conexão com internet da fábrica</li>
                                 </ul>
@@ -1791,22 +1572,21 @@
                         <i class="fas fa-shield-alt text-4xl text-emerald-700"></i>
                         <h3 class="text-2xl font-black text-emerald-900">Garantias Técnicas e SLA</h3>
                         <span class="ml-auto bg-emerald-100 text-emerald-800 px-4 py-1 rounded-full text-xs font-bold">
-                            Todas as Opções
+                            Ambos os planos
                         </span>
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Garantia de Hardware -->
                         <div class="bg-emerald-50 rounded-xl p-6 border-l-4 border-emerald-500">
                             <h4 class="font-bold text-lg text-emerald-900 mb-3 flex items-center gap-2">
                                 <i class="fas fa-sync-alt text-emerald-600"></i>
-                                Substituição de Hardware
+                                Implantação e Acompanhamento
                             </h4>
                             <ul class="space-y-2 text-gray-700 text-sm">
-                                <li><strong>Defeito técnico:</strong> Troca em até 24h úteis (sem custo)</li>
-                                <li><strong>Mau uso/quebra:</strong> Franquia de R$ 250 por aparelho</li>
-                                <li><strong>Furto:</strong> Substituição mediante BO + franquia de R$ 350</li>
-                                <li><strong>Desgaste natural:</strong> Troca gratuita após 18 meses de uso</li>
+                                <li><strong>Investimento inicial:</strong> R$ 2.000,00 para implantação e desenvolvimento</li>
+                                <li><strong>Configuração inicial:</strong> Parametrização conforme o plano contratado</li>
+                                <li><strong>Treinamento:</strong> Equipe orientada para usar o sistema na rotina da fábrica</li>
+                                <li><strong>Go live:</strong> Acompanhamento até a operação entrar em uso</li>
                             </ul>
                         </div>
 
@@ -1897,7 +1677,7 @@
 
                     <div class="mt-6 bg-yellow-500 text-yellow-900 rounded-lg p-4 text-center font-bold">
                         <i class="fas fa-star mr-2"></i>
-                        Você paga apenas a mensalidade. Zero cobrança por atualizações, melhorias ou treinamentos de reciclagem.
+                        Depois da implantação inicial, não há cobrança extra por atualizações, melhorias ou treinamentos de reciclagem.
                     </div>
                 </div>
             </div>
